@@ -17,6 +17,7 @@ type ViewStyle = Pick<
 interface BoxProps extends ViewStyle, ComponentProps<typeof Container> {
   children: ReactNode;
   fullWidth?: boolean;
+  maxWidth?: number
   gap?: number;
 }
 
@@ -31,6 +32,7 @@ export function Box (props: BoxProps) {
     flexDirection,
     alignItems,
     style,
+    maxWidth,
     flexWrap,
     ...otherProps
   } =
@@ -47,6 +49,7 @@ export function Box (props: BoxProps) {
         ...style,
         display: 'flex',
         width: fullWidth ? '100%' : 'auto',
+        maxWidth,
         ...(gap && { gap: `${gap}rem` }),
         ...(marginTop && { marginTop: `${marginTop}rem` }),
         ...(marginBottom && { marginBottom: `${marginBottom}rem` }),
