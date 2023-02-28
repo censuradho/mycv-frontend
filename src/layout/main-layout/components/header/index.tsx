@@ -6,7 +6,7 @@ import Link from 'next/link'
 import * as Styles from './styles'
 
 export function Header () {
-  const { onSignOut } = useAuth()
+  const { onSignOut, auth } = useAuth()
 
   return (
     <Styles.Container>
@@ -21,7 +21,7 @@ export function Header () {
       </Link>
       <Styles.Root modal={false}>
         <Styles.Trigger>
-          <Avatar alt="user" />
+          <Avatar alt="user"  src={auth?.avatar?.url}/>
         </Styles.Trigger>
         <Styles.Portal>
           <Styles.Content>

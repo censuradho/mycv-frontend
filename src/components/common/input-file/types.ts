@@ -22,4 +22,5 @@ export interface InputFileProps extends RootInputProps {
   loading?: boolean
   defaultImage?: string
   onChange?: (file: File | null) => void
+  onDelete?: () => void
 }

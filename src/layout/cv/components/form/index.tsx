@@ -68,9 +68,10 @@ export const basicPortfolio: CreateCurriculum['portfolios'] = [{
 
 export function Form (props: CurriculumFormProps) {
   const { 
-    defaultValue,
-    onRefresh 
+    defaultValue
   } = props
+
+  const { auth, onAuth } = useAuth()
 
   const [isUploadingAvatar, setIsUploadingAvatar] = useState(false)
 
@@ -118,12 +119,12 @@ export function Form (props: CurriculumFormProps) {
   const getCities = useDebounceCallback(async (cityName: string) => {
     const { data } = await placeServices.findByCityName(cityName)
     setCities(data)
-  }, 2000)
+  }, 500)
 
   const getCountries = useDebounceCallback(async (cityName: string) => {
     const { data } = await placeServices.findByCountryName(cityName)
     setCountries(data)
-  }, 2000)
+  }, 500)
 
 
   const optionsCities = cities.map(city => ({
@@ -163,13 +164,14 @@ export function Form (props: CurriculumFormProps) {
       setIsUploadingAvatar(true)
 
       if (defaultValue?.avatar) await curriculumService.destroyAvatar()
-      
 
       const formData = new FormData()
   
       formData.append('file', file)
   
       await curriculumService.uploadAvatar(formData)
+      await onAuth()
+
     } finally {
       setIsUploadingAvatar(false)
     }
@@ -194,6 +196,11 @@ export function Form (props: CurriculumFormProps) {
     if (value.length > 3) getCountries(value)
   }
 
+  const handleDeleteAvatar = async () => {
+    await curriculumService.destroyAvatar()
+    await onAuth()
+  }
+
   useEffect(() => {
     if (!defaultValue) return;
 
@@ -214,7 +221,8 @@ export function Form (props: CurriculumFormProps) {
                   id="avatar"
                   loading={isUploadingAvatar}
                   onChange={file => handleUploadImage(file)}
-                  defaultImage={defaultValue?.avatar?.url}
+                  defaultImage={auth?.avatar?.url}
+                  onDelete={handleDeleteAvatar}
                 />
               </Box>
               <Box 

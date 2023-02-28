@@ -37,5 +37,6 @@ export interface Me {
   username: string
   email: string
   role: string
-  access_token: string  
+  access_token: string
+  avatar?: Avatar
 }

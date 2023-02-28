@@ -11,6 +11,7 @@ export const InputFile = forwardRef<HTMLInputElement, InputFileProps>((props, re
     loading,
     onChange,
     defaultImage,
+    onDelete,
     ...otherProps
   } = props
 
@@ -31,10 +32,11 @@ export const InputFile = forwardRef<HTMLInputElement, InputFileProps>((props, re
 
   const handleRemove = () => {
     setFile(null)
+    onDelete?.()
   }
   
   const renderPreview = () => {
-    if (!file) return null
+    if (!preview && !file) return null
 
     return (
       <Box gap={1} alignItems="flexStart">
@@ -65,7 +67,7 @@ export const InputFile = forwardRef<HTMLInputElement, InputFileProps>((props, re
   }
 
   const renderTrigger = () => {
-    if (file) return null
+    if (file || preview) return null
 
     return (
       <Box gap={1} alignItems="center">
