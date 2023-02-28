@@ -24,7 +24,7 @@ export const Input = styled("input", {
   outline: "none",
   padding: "0 1rem",
   color: "$text",
-  fontWeight: 500,
+  fontWeight: 400,
   
   "&::placeholder": {
     color: "$text",

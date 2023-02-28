@@ -15,7 +15,7 @@ export const Container = styled('div', {
     outline: "none",
     padding: "0 1rem",
     color: "$text",
-    fontWeight: 500,
+    fontWeight: 400,
   
     "&::placeholder": {
       color: "$ancesst6",
