@@ -69,7 +69,12 @@ export const Button = styled('button', {
       letter: {
         background: 'none',
         height: 'auto',
-        fontWeight: 800,
+        fontWeight: 600,
+        textTransform: 'uppercase',
+        letterSpacing: '0.05rem',
+        '> *': {
+          color: '$primary'
+        }
       }
     }
   },

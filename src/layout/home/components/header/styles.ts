@@ -9,6 +9,6 @@ export const Container = styled('header', {
   zIndex: 10,
   display: 'flex',
   alignItems: 'center',
-  padding: '0 2rem',
+  padding: '0 1rem',
   background: 'hsla(0,0%,100%,.8)'
 })

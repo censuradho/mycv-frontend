@@ -11,7 +11,9 @@ export const Container = styled('header', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0 1rem'
+  background: '$backgroundOverlay',
+  padding: '0 1rem',
+  zIndex: 10
 })
 
 const slideUpAndFade = keyframes({

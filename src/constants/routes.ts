@@ -6,7 +6,7 @@ export const paths = {
   search: '/search',
   auth: {
     signIn: '/auth/login',
-    signUp: 'sign-up',
+    signUp: '/auth/register',
     sendConfirmation: '/auth/email/send-confirmation',
     resetPassword: '/auth/reset-password/new',
   },
