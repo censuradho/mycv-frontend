@@ -1,4 +1,4 @@
-interface Avatar {
+export interface Avatar {
   id: string
   width: number
   height: number
@@ -12,9 +12,9 @@ export interface User {
   email: string
   password: string
   role: string
-  avatar?: Avatar
   created_at: string
   updated_at: string
+  avatar?: Avatar
 }
 
 export interface SignUpWithEmailPasswordRequest {

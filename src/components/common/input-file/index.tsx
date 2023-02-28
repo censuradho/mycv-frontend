@@ -10,6 +10,7 @@ export const InputFile = forwardRef<HTMLInputElement, InputFileProps>((props, re
     accept = ["image/x-png", "image/gif", "image/jpeg", ".jpg", ".jpeg", ".gif", ".png", ".tiff"],
     loading,
     onChange,
+    defaultImage,
     ...otherProps
   } = props
 
@@ -17,7 +18,7 @@ export const InputFile = forwardRef<HTMLInputElement, InputFileProps>((props, re
 
   const [file, setFile] = useState<File | null>(null)
 
-  const preview = file ? URL.createObjectURL(file) : ''
+  const preview = file ? URL.createObjectURL(file) : (defaultImage || '')
 
   const handleUploadAvatar = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.currentTarget

@@ -1,3 +1,4 @@
+import { Avatar } from "../auth/types"
 
 export type CreateEntityOmit<T> = Omit<T, 'id' | 'created_at' | 'updated_at' | 'slug'>
 
@@ -53,6 +54,7 @@ export enum EnumLanguageLevel {
   advanced = 'advanced',
   fluent = 'fluent',
 }
+
 
 interface Address {
   city: string
@@ -147,7 +149,7 @@ export interface CreateCurriculum extends Omit<Curriculum,
   experiences?: Array<CreateExperience>
   languages?: Array<CreateEntityOmit<Language>>
   portfolios?: Array<CreateEntityOmit<Portfolio>>
-
+  avatar?: Avatar
 }
 
 

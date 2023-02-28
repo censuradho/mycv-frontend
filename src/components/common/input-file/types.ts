@@ -18,7 +18,8 @@ type FileTypes = 'image/apng'
   | 'image/x-icon'
 
 export interface InputFileProps extends RootInputProps {
-  accept: FileTypes[]
+  accept?: FileTypes[]
   loading?: boolean
+  defaultImage?: string
   onChange?: (file: File | null) => void
 }

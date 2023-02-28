@@ -19,7 +19,10 @@ export function CvLayout (props: CvPageProps) {
 
   return (
     <Styles.Container>
-      <Form defaultValue={curriculum} />
+      <Form 
+        defaultValue={curriculum} 
+        onRefresh={handleGetCurriculum} 
+      />
     </Styles.Container>
   )
 }

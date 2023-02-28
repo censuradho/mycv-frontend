@@ -28,6 +28,7 @@ import { curriculumService } from '@/services/api/curriculum'
 import { useToast } from '@/context'
 import { CurriculumFormProps } from './types'
 import { InputFile } from '@/components/common/input-file'
+import { useAuth } from '@/context/auth'
 
 export const baseEmployment: CreateCurriculum['experiences'] = [{
   employer: '',
@@ -66,7 +67,12 @@ export const basicPortfolio: CreateCurriculum['portfolios'] = [{
 }]
 
 export function Form (props: CurriculumFormProps) {
-  const { defaultValue } = props
+  const { 
+    defaultValue,
+    onRefresh 
+  } = props
+
+  const [isUploadingAvatar, setIsUploadingAvatar] = useState(false)
 
   const { 
     register,
@@ -87,7 +93,7 @@ export function Form (props: CurriculumFormProps) {
     skills,
     languages,
     portfolios,
-    address
+    address,
   ] = watch([
     'experiences', 
     'educations', 
@@ -151,6 +157,25 @@ export function Form (props: CurriculumFormProps) {
     })
   }
 
+  const handleUploadImage = async (file: File | null) => {
+    try {
+      if (!file) return;
+      setIsUploadingAvatar(true)
+
+      if (defaultValue?.avatar) await curriculumService.destroyAvatar()
+      
+
+      const formData = new FormData()
+  
+      formData.append('file', file)
+  
+      await curriculumService.uploadAvatar(formData)
+    } finally {
+      setIsUploadingAvatar(false)
+    }
+
+  }
+
   const handleSearchCity = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target
     setSearchCity(value)
@@ -168,8 +193,6 @@ export function Form (props: CurriculumFormProps) {
 
     if (value.length > 3) getCountries(value)
   }
-
-
 
   useEffect(() => {
     if (!defaultValue) return;
@@ -189,6 +212,9 @@ export function Form (props: CurriculumFormProps) {
               <Box justifyContent="flex-start" fullWidth>
                 <InputFile 
                   id="avatar"
+                  loading={isUploadingAvatar}
+                  onChange={file => handleUploadImage(file)}
+                  defaultImage={defaultValue?.avatar?.url}
                 />
               </Box>
               <Box 
