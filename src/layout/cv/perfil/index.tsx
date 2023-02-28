@@ -90,12 +90,22 @@ export function CvPerfilLayout (props: CvPerfilProps) {
   }
 
 
-  const renderSkills = data?.skills?.map((value, index) => (
-    <li key={value.id}>
-      {value.name}
-    </li>
-  ))
 
+  const renderSkills = () => {
+    if (!data?.skills || data?.skills?.length === 0) return null
+
+    const renderItems = data?.skills?.map((value, index) => (
+      <li key={value.id}>
+        {value.name}
+      </li>
+    ))
+    return (
+      <Box marginTop={2} flexDirection="column" >
+        <Styles.SectionTitle>Habilidades</Styles.SectionTitle>
+        <Styles.SkillList>{renderItems}</Styles.SkillList>
+      </Box>
+    )
+  }
 
   return (
     <Container>
@@ -128,10 +138,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
           <Typography as="p" size="xsm" color="heading">{`${data?.address?.country} ${data?.address?.city ? ', ' + data?.address?.city : ''}`}</Typography>
           <Typography as="p" size="xsm" color="heading">{data?.phone}</Typography>
           <Typography as="p" size="xsm" color="heading">{data?.public_email}</Typography>
-          <Box marginTop={2} flexDirection="column" >
-            <Styles.SectionTitle>Habilidades</Styles.SectionTitle>
-            <Styles.SkillList>{renderSkills}</Styles.SkillList>
-          </Box>
+          {renderSkills()}
         </Box>
       </Styles.Container>
     </Container>

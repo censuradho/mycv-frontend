@@ -13,10 +13,11 @@ export function Menu () {
     <Styles.Portal>
       <Styles.Content>
         <Styles.Item>Configurações</Styles.Item>
+        <Styles.Item onClick={() => router.push(paths.cv.me)}>Meu currículo</Styles.Item>
         {auth?.curriculum?.slug && (
           <Styles.Item 
             onClick={() => router.push(resolvePath(paths.cv.find, { slug: auth?.curriculum?.slug  }))}>
-                  Ver meu currículo
+              Meu perfil
           </Styles.Item>
         )}
         <Styles.Item onClick={() => onSignOut()}>Sair</Styles.Item>
