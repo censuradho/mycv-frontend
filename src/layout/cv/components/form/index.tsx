@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Box, Button, Container, Typography } from '@/components/common'
@@ -27,6 +27,7 @@ import { curriculumValidationSchema } from './validations'
 import { curriculumService } from '@/services/api/curriculum'
 import { useToast } from '@/context'
 import { CurriculumFormProps } from './types'
+import { InputFile } from '@/components/common/input-file'
 
 export const baseEmployment: CreateCurriculum['experiences'] = [{
   employer: '',
@@ -168,6 +169,8 @@ export function Form (props: CurriculumFormProps) {
     if (value.length > 3) getCountries(value)
   }
 
+
+
   useEffect(() => {
     if (!defaultValue) return;
 
@@ -183,6 +186,11 @@ export function Form (props: CurriculumFormProps) {
           <Box flexDirection="column" gap={2}>
             <Styles.SectionTitle>Informações pessoais</Styles.SectionTitle>
             <Box flexDirection="column" gap={1}>
+              <Box justifyContent="flex-start" fullWidth>
+                <InputFile 
+                  id="avatar"
+                />
+              </Box>
               <Box 
                 gap={1}
                 flexDirection={{

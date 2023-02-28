@@ -41,6 +41,7 @@ export const Content = styled(DropdownMenu.Content, {
   backgroundColor: '$background',
   borderRadius: '$default',
   padding: 5,
+  zIndex: 11,
   boxShadow:
     '0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
   animationDuration: '400ms',
@@ -67,6 +68,7 @@ export const Item = styled(DropdownMenu.Item, {
   color: '$text',
   cursor: 'pointer',
   fontWeight: 600,
+  zIndex: 11,
 
   '&:hover, &:focus': {
     color: '$primary'

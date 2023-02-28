@@ -9,10 +9,9 @@ import {
 import {
   BiCodeAlt, BiCommand, BiDotsVerticalRounded, BilFacebookSquare, BilGithub,
   BilInstagramAlt, BiListOl, BilSpotify, BilTwitter, BisDashboard,
-  BisDownArrow, BisFilePdf, BisReport, BisShareAlt, BisUpArrow
+  BisDownArrow, BisFilePdf, BisReport, BisShareAlt, BisUpArrow, BisUserCircle
 } from '@meronex/icons/bi';
 import {
-  EnLinkedin,
   EnLocationPin,
   EnPinterest
 } from '@meronex/icons/en';
@@ -35,13 +34,13 @@ import {
 } from '@meronex/icons/vsc';
 
 import {
-  EnRss
-} from '@meronex/icons/en';
-import {
   BsHeartFill,
   BsListUl,
   BsQuestion, BsSearch, BsTypeBold, BsTypeItalic, BsTypeStrikethrough, BsTypeUnderline
 } from '@meronex/icons/bs';
+import {
+  EnRss
+} from '@meronex/icons/en';
 
 import {
   BsCodeSlash, BsFillEyeFill, BsFillEyeSlashFill
@@ -49,13 +48,16 @@ import {
 import {
   CgGym, CgMenuLeft
 } from '@meronex/icons/cg/';
+import { GrWheelchair } from '@meronex/icons/gr';
+import { MdAttachMoney, MdEdit } from '@meronex/icons/md';
 import {
-  MdcClockFast, MdcPokerChip, MdcWeb, MdcWebBox
+  MdcClockFast, MdcPokerChip, MdcWeb
 } from '@meronex/icons/mdc';
-import { MdAttachMoney } from '@meronex/icons/md';
-import { GrWheelchair }  from '@meronex/icons/gr';
+
 export const icons = {
+  edit: MdEdit,
   headert: BsHeartFill,
+  userCircle: BisUserCircle,
   search: BsSearch,
   add: AiOutlinePlus,
   suiteCase: FaSuitcase,

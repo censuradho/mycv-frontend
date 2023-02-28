@@ -5,12 +5,13 @@ export const Container = styled('div', {
   display: "flex",
   flexDirection: "column",
   gap: "0.5rem",
-  
+
   '.ProseMirror': {
     padding: '0 1rem 1rem 1rem',
     borderBottom: '2px solid transparent',
     marginTop: 'auto',
     minHeight: '200px',
+
     '&:focus': {
       borderBottom: '2px solid $primary',
       outline: 'none'
