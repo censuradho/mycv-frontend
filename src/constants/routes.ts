@@ -1,7 +1,8 @@
 export const paths = {
   home: '/',
   cv: {
-    me: '/cv/@me'
+    me: '/cv/@me',
+    find: '/cv/:slug'
   },
   search: '/search',
   auth: {

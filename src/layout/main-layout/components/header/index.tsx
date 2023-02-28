@@ -3,11 +3,17 @@ import { paths } from '@/constants/routes'
 import { useAuth } from '@/context/auth'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react'
+import { Menu } from './components'
 import * as Styles from './styles'
 
 export function Header () {
-  const { onSignOut, auth } = useAuth()
+  const { auth, onAuth } = useAuth()
 
+  useEffect(() => {
+    onAuth()
+  }, [])
+  
   return (
     <Styles.Container>
       <Link href={paths.home}>
@@ -21,14 +27,9 @@ export function Header () {
       </Link>
       <Styles.Root modal={false}>
         <Styles.Trigger>
-          <Avatar alt="user"  src={auth?.avatar?.url}/>
+          <Avatar alt="user" src={auth?.avatar?.url}/>
         </Styles.Trigger>
-        <Styles.Portal>
-          <Styles.Content>
-            <Styles.Item>Configurações</Styles.Item>
-            <Styles.Item onClick={() => onSignOut()}>Sair</Styles.Item>
-          </Styles.Content>
-        </Styles.Portal>
+        <Menu />
       </Styles.Root>
     </Styles.Container>
   )

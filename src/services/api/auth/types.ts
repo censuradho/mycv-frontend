@@ -1,3 +1,5 @@
+import { Curriculum } from "../curriculum/types"
+
 export interface Avatar {
   id: string
   width: number
@@ -15,6 +17,7 @@ export interface User {
   created_at: string
   updated_at: string
   avatar?: Avatar
+  curriculum?: Pick<Curriculum, 'slug'>
 }
 
 export interface SignUpWithEmailPasswordRequest {
@@ -32,11 +35,4 @@ export interface SignInWithEmailPasswordRequest {
   email: string
 }
 
-export interface Me {
-  id: string
-  username: string
-  email: string
-  role: string
-  access_token: string
-  avatar?: Avatar
-}
+export type Me = Omit<User, 'password' | 'created_at' | 'updated_at'> 
