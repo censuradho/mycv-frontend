@@ -18,6 +18,18 @@ function findBySlug (slug: string) {
   return api.get<Curriculum>(`/curriculum/${slug}`)
 }
 
+function uploadAvatar (payload: FormData) {
+  return api.post('/curriculum/avatar/upload', payload, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+}
+
+function destroyAvatar () {
+  return api.delete('/curriculum/avatar')
+}
+
 function update (payload: UpdateCurriculum) {
   return api.put('/curriculum', payload)
 }
@@ -27,5 +39,7 @@ export const curriculumService = {
   me,
   findAll,
   findBySlug,
-  update
+  update,
+  uploadAvatar,
+  destroyAvatar
 }
