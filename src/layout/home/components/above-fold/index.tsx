@@ -8,7 +8,7 @@ export function AboveFold () {
     <Container size="md">
       <Styles.Container>
         <Styles.Content>
-          <Typography as="h2" size="xlg">Faça seu currículo ir ao próximo nível</Typography>
+          <Typography as="h2" size="xlg" fontWeight="800" color="heading">Faça seu currículo ir ao próximo nível</Typography>
           <Typography as="p">ter um currículo online se tornou uma estratégia essencial para quem busca uma nova oportunidade profissional</Typography>
           <Box marginTop={1}>
             <Button>Crie seu CV</Button>

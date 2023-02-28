@@ -22,15 +22,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => {
-  const { slug } = context?.params || {}
+  try {
+    const { slug } = context?.params || {}
 
-  const { data } = await curriculumService.findBySlug(slug as string)
-
-  return {
-    props: {
-      data
-    },
-    revalidate: 10
+    const { data } = await curriculumService.findBySlug(slug as string)
+  
+    if (!data) return {
+      notFound: true,
+      revalidate: 10
+    }
+    
+    return {
+      props: {
+        data
+      },
+      revalidate: 10
+    }
+  } catch (err) {
+    return {
+      notFound: true,
+      revalidate: 10
+    }
   }
 }
 

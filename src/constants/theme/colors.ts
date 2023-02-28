@@ -24,7 +24,7 @@ const teste = {
 export const colors = {
   ...ancesst,
   primary: '#5BAC4F',
-  primaryLight: '#EEFFC0',
+  primaryLight: '#C7E357',
   primaryLighter: '#F3F9DA',
   secondary: '#B8A9FB',
   tertiary: '#BBE6EC',
@@ -34,6 +34,6 @@ export const colors = {
   heading: ancesst.ancesst1,
   foreground: '#eff2f9',
   text: ancesst.ancesst4,
-  border: ancesst.ancesst6,
+  border: ancesst.ancesst8,
   backgroundOverlay: 'rgba(225, 225, 225, 0.3)'
 };
