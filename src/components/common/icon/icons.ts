@@ -38,8 +38,9 @@ import {
   EnRss
 } from '@meronex/icons/en';
 import {
+  BsHeartFill,
   BsListUl,
-  BsQuestion, BsTypeBold, BsTypeItalic, BsTypeStrikethrough, BsTypeUnderline
+  BsQuestion, BsSearch, BsTypeBold, BsTypeItalic, BsTypeStrikethrough, BsTypeUnderline
 } from '@meronex/icons/bs';
 
 import {
@@ -53,8 +54,9 @@ import {
 } from '@meronex/icons/mdc';
 import { MdAttachMoney } from '@meronex/icons/md';
 import { GrWheelchair }  from '@meronex/icons/gr';
-
 export const icons = {
+  headert: BsHeartFill,
+  search: BsSearch,
   add: AiOutlinePlus,
   suiteCase: FaSuitcase,
   github: BilGithub,

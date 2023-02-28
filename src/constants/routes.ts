@@ -3,6 +3,7 @@ export const paths = {
   cv: {
     me: '/cv/@me'
   },
+  search: '/search',
   auth: {
     signIn: '/auth/login',
     signUp: 'sign-up',

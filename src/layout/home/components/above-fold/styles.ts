@@ -16,7 +16,7 @@ export const Container = styled('section', {
 })
 
 export const Content = styled('div', {
-  maxWidth: '400px',
+  maxWidth: '500px',
   display: 'flex',
   minHeight: '40vh',
   flexDirection: 'column',

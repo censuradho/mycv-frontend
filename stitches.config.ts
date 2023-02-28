@@ -24,6 +24,10 @@ const globalStyle = GlobalCss({
     boxSizing: 'border-box',
     fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif',
     color: '$text',
+    'scroll-behavior': 'smooth',
+  },
+  html: {
+    'scroll-behavior': 'smooth',
   },
   kbd: {
     background: '$ancesst6',
@@ -37,7 +41,7 @@ const globalStyle = GlobalCss({
       width: '10px',
       borderRadius: '$default'
     },
-    
+    'scroll-behavior': 'smooth',
     /* Track */
     '::-webkit-scrollbar-track': {
       background: '$background',

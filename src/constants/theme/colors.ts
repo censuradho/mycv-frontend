@@ -35,5 +35,5 @@ export const colors = {
   foreground: '#eff2f9',
   text: ancesst.ancesst4,
   border: ancesst.ancesst8,
-  backgroundOverlay: 'rgba(225, 225, 225, 0.3)'
+  backgroundOverlay: 'hsla(0,0%,100%,.8)'
 };

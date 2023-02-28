@@ -8,8 +8,12 @@ export function AboveFold () {
     <Container size="md">
       <Styles.Container>
         <Styles.Content>
-          <Typography as="h2" size="xlg" fontWeight="800" color="heading">Faça seu currículo ir ao próximo nível</Typography>
-          <Typography as="p">ter um currículo online se tornou uma estratégia essencial para quem busca uma nova oportunidade profissional</Typography>
+          <Typography as="h2" size="xlg" fontWeight="800" color="heading">Seja descoberto, tenha um CV Online🚀</Typography>
+          <Typography as="p">
+            Ao contrário de um currículo impresso, que é limitado em termos de espaço e formato, 
+            um currículo online permite que você mostre seus talentos, 
+            habilidades e experiências de forma mais abrangente.
+          </Typography>
           <Box marginTop={1}>
             <Button>Crie seu CV</Button>
           </Box>

@@ -35,7 +35,11 @@ export const Block = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   gap: '1.4rem',
-  position: 'relative'
+  position: 'relative',
+  strong: {
+    textTransform: 'uppercase'
+  },
+  
 })
 
 export const BlockTitle = styled('strong', {

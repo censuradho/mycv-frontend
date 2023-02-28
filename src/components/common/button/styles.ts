@@ -29,8 +29,10 @@ export const Button = styled('button', {
     variant: {
       primary: {
         background: '$primary',
-        padding: '0.7rem 1rem',
+        padding: '0.7rem 1.4rem',
         border: '1px solid transparent',
+        textTransform: 'uppercase',
+        letterSpacing: '0.05rem',
 
         '&:disabled': {
           background: '$disabled'
