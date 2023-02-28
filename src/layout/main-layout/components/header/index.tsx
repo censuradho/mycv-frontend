@@ -27,7 +27,7 @@ export function Header () {
       </Link>
       <Styles.Root modal={false}>
         <Styles.Trigger>
-          <Avatar alt="user" src={auth?.avatar?.url}/>
+          <Avatar alt={auth?.username} src={auth?.avatar?.url}/>
         </Styles.Trigger>
         <Menu />
       </Styles.Root>
