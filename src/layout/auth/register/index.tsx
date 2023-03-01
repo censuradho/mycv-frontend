@@ -29,8 +29,8 @@ export function RegisterLayout () {
   })
 
   const onSubmit = async (data: SignUpWithEmailPasswordRequest) => {
-    await authService.signUpWithEmailPassword(data)
-    router.push(paths.auth.signIn)
+    await onSignInWithEmailPassword(data)
+    router.push(paths.cv.me)
   }
 
   return (

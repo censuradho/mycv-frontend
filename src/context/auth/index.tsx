@@ -29,8 +29,7 @@ export function AuthProvider (props: PropsWithChildren) {
   const handleSignOut = useCallback(() => {
     setAuth(null)
     authService.signOut()
-    router.push(paths.home)
-  }, [router, setAuth])
+  }, [setAuth])
 
   const handleSignInWithEmailPassword = async (payload: SignInWithEmailPasswordRequest) => {
     try {
