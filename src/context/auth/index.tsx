@@ -4,7 +4,6 @@ import { useLocalStorage } from "@/hooks";
 import { api } from "@/services/api";
 import { authService } from "@/services/api/auth";
 import { SignInWithEmailPasswordRequest, SignUpWithEmailPasswordRequest } from "@/services/api/auth/types";
-import { API_ERRORS } from "@/services/api/errors";
 import { isBrowser } from "@/utils/helpers";
 import { AxiosError } from "axios";
 import { useRouter } from "next/router";
