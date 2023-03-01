@@ -4,6 +4,7 @@ import { useLocalStorage } from "@/hooks";
 import { api } from "@/services/api";
 import { authService } from "@/services/api/auth";
 import { SignInWithEmailPasswordRequest, SignUpWithEmailPasswordRequest } from "@/services/api/auth/types";
+import { API_ERRORS } from "@/services/api/errors";
 import { isBrowser } from "@/utils/helpers";
 import { AxiosError } from "axios";
 import { useRouter } from "next/router";
@@ -107,8 +108,14 @@ export function AuthProvider (props: PropsWithChildren) {
     api.interceptors.response.use((response) => response, async (data: AxiosError) => {
       const { response } = data;
 
-      if (response?.status === 401) {
-        handleSignOut()
+      const { status } = response || {}
+      const { description = '' } = (response?.data || {}) as { description?: string }
+
+      if (status && status >= 400 && description) {
+        onNotify({
+          title: 'Atenção 🚨',
+          description: API_ERRORS?.[description as keyof typeof API_ERRORS]
+        })
       }
 
       return Promise.reject(data);
