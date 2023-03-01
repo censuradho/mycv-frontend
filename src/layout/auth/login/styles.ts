@@ -4,7 +4,7 @@ export const Container = styled('main', {
 
   '@table-min': {
     display: 'flex',
-    height: '100vh'
+    height: 'calc(100vh - 60px)'
   }
 })
 
@@ -18,7 +18,6 @@ export const Form = styled('form', {
 
   '@table-min': {
     maxWidth: '500px',
-
   }
 })
 

@@ -26,6 +26,11 @@ export interface SignUpWithEmailPasswordRequest {
   email: string
 }
 
+export interface ResetPasswordRequest {
+  token: string
+  password: string
+}
+
 export interface SignInWithEmailPasswordResponse {
   access_token: string
 }

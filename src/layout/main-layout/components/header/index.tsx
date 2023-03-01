@@ -17,13 +17,7 @@ export function Header () {
   return (
     <Styles.Container>
       <Link href={paths.home}>
-        <Image 
-          src="/logo.svg" 
-          height={45} 
-          width={45} 
-          style={{ objectFit: 'contain' }} 
-          alt="logo" 
-        />
+        <Image src="/logo.svg" alt="" height={40} width={40} style={{ objectFit: 'contain' }} />
       </Link>
       <Styles.Root modal={false}>
         <Styles.Trigger>

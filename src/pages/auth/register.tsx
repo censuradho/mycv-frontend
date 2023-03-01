@@ -1,5 +1,5 @@
 import { Head } from "@/components/common";
-import { RegisterLayout } from "@/layout/register";
+import { RegisterLayout } from "@/layout/auth";
 
 export default function LoginPage () {
   return (

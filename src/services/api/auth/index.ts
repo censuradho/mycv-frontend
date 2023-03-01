@@ -1,4 +1,4 @@
-import { Me, SignInWithEmailPasswordRequest, SignInWithEmailPasswordResponse, SignUpWithEmailPasswordRequest } from "./types";
+import { Me, ResetPasswordRequest, SignInWithEmailPasswordRequest, SignInWithEmailPasswordResponse, SignUpWithEmailPasswordRequest } from "./types";
 
 import { api } from '@/services/api'
 
@@ -23,10 +23,15 @@ function signOut () {
   delete api.defaults.headers['Authorization']
 }
 
+function resetPassword (payload: ResetPasswordRequest) {
+  return api.post('/auth/reset-password', payload)
+}
+
 
 export const authService = {
   signUpWithEmailPassword,
   signInWithEmailPassword,
   me,
-  signOut
+  signOut,
+  resetPassword
 }
