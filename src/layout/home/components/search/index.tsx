@@ -12,7 +12,12 @@ export function Search () {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
 
-    router.push(paths.search)
+    router.push(paths.search, {
+      query: {
+        q: search
+      }
+    })
+
   }
 
   return (

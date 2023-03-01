@@ -104,11 +104,11 @@ export function AuthProvider (props: PropsWithChildren) {
   useEffect(() => {
     api.interceptors.response.use((response) => response, async (error: AxiosError) => {
 
-      if (error?.response?.status === 401) handleSystemSignOut()
+      if (error?.response?.status === 401) handleAppSignOut()
 
       return Promise.reject(error);
     })
-  }, [handleSystemSignOut])
+  }, [handleAppSignOut])
 
   useEffect(() => {
     api.interceptors.response.use((response) => response, async (data: AxiosError) => {
