@@ -18,12 +18,18 @@ export function AboveFold () {
             <Button>Crie seu CV</Button>
           </Box>
           <Styles.BgFigure>
-            <Image priority src="/green.png" alt="" fill/>
+            <Image priority src="/green.png" alt="" fill />
           </Styles.BgFigure>
         </Styles.Content>
         <Styles.FigureView>
           <Styles.Figure>
-            <Image priority src="/samsung-uk-n2FLiPRGaxk-unsplash 1.jpg" fill alt="bg" />
+            <Image 
+              src="/samsung-uk-n2FLiPRGaxk-unsplash 1.jpg" 
+              priority 
+              fill 
+              alt="bg"
+              sizes='' 
+            />
           </Styles.Figure>
         </Styles.FigureView>
       </Styles.Container>

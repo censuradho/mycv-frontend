@@ -14,7 +14,7 @@ export function RegisterLayout () {
   const router = useRouter()
 
   const { 
-    onSignInWithEmailPassword,
+    onSignUpWithEmailPassword,
     isLoading 
   } = useAuth()
 
@@ -27,7 +27,7 @@ export function RegisterLayout () {
   })
 
   const onSubmit = async (data: SignUpWithEmailPasswordRequest) => {
-    await onSignInWithEmailPassword(data)
+    await onSignUpWithEmailPassword(data)
     router.push(paths.cv.me)
   }
 
