@@ -20,7 +20,7 @@ export function Menu () {
               Meu perfil
           </Styles.Item>
         )}
-        <Styles.Item onClick={() => onSignOut()}>Sair</Styles.Item>
+        <Styles.Item onClick={onSignOut}>Sair</Styles.Item>
       </Styles.Content>
     </Styles.Portal>
   )

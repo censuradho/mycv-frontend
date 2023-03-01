@@ -27,15 +27,21 @@ export function AuthProvider (props: PropsWithChildren) {
 
   const [auth, setAuth] = useLocalStorage<Auth | null>(AUTH_KEY, null)
 
-  const handleSignOut = useCallback(() => {
+  const handleSystemSignOut = useCallback(() => {
     setAuth(null)
     authService.signOut()
   }, [setAuth])
 
+
+  const handleAppSignOut = () => {
+    handleSystemSignOut()
+    router.push(paths.auth.signIn)
+  }
+
   const handleSignInWithEmailPassword = async (payload: SignInWithEmailPasswordRequest) => {
     try {
       setIsLoading(true)
-      handleSignOut()
+      handleSystemSignOut()
       const me = await authService.signInWithEmailPassword(payload)
       setAuth(me)
 
@@ -50,7 +56,7 @@ export function AuthProvider (props: PropsWithChildren) {
       const { email, username, password } = payload
       
       setIsLoading(true)
-      handleSignOut()
+      handleSystemSignOut()
       await authService.signUpWithEmailPassword({
         email, username, password 
       })
@@ -98,11 +104,11 @@ export function AuthProvider (props: PropsWithChildren) {
   useEffect(() => {
     api.interceptors.response.use((response) => response, async (error: AxiosError) => {
 
-      if (error?.response?.status === 401) handleSignOut()
+      if (error?.response?.status === 401) handleSystemSignOut()
 
       return Promise.reject(error);
     })
-  }, [handleSignOut])
+  }, [handleSystemSignOut])
 
   useEffect(() => {
     api.interceptors.response.use((response) => response, async (data: AxiosError) => {
@@ -146,7 +152,7 @@ export function AuthProvider (props: PropsWithChildren) {
         isLoading,
         isSigned: !!auth,
         onSignInWithEmailPassword: handleSignInWithEmailPassword,
-        onSignOut: handleSignOut,
+        onSignOut: handleAppSignOut,
         onSignUpWithEmailPassword: handleSignUpWithEmailPassword,
         onAuth: handleAuth,
       }}
