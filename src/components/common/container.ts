@@ -7,6 +7,11 @@ export const Container = styled('div', {
 
   variants: {
     size: {
+      sm: {
+        '@laptops-min': {
+          maxWidth: '720px'
+        }
+      },
       md: {
         '@laptops-min': {
           maxWidth: '1240px'

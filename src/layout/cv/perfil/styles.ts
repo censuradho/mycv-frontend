@@ -12,6 +12,12 @@ export const Container = styled('div', {
   }
 })
 
+export const Header = styled('header', {
+  width: '100%',
+  borderBottom: '1px solid $ancesst6',
+  padding: '2rem 0'
+})
+
 export const List = styled('ul', {
   listStyleType: 'none'
 })

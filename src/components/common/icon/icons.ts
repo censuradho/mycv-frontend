@@ -48,14 +48,16 @@ import {
 import {
   CgGym, CgMenuLeft
 } from '@meronex/icons/cg/';
-import { GrWheelchair } from '@meronex/icons/gr';
+import { GrDocumentDownload, GrWheelchair } from '@meronex/icons/gr';
 import { MdAttachMoney, MdEdit } from '@meronex/icons/md';
 import {
   MdcClockFast, MdcPokerChip, MdcWeb
 } from '@meronex/icons/mdc';
 
+
 export const icons = {
   edit: MdEdit,
+  documentDownload: GrDocumentDownload,
   headert: BsHeartFill,
   userCircle: BisUserCircle,
   search: BsSearch,

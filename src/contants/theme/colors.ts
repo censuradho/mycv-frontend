@@ -18,7 +18,7 @@ export const colors = {
   tertiary: '#BBE6EC',
   quaternary: '#6DD4C1',
   heading: '#3A414A',
-  border: ancesst.ancesst6,
+  border: ancesst.ancesst3,
   background: ancesst.ancesst8,
   foreground: ancesst.ancesst7,
   text: ancesst.ancesst5,

@@ -6,12 +6,25 @@ export function ButtonIcon (props: ButtonIconProps) {
   const {
     icon,
     label,
+    textHelper,
     ...otherProps
   } = props
 
   return (
-    <Styles.Button aria-label={label} {...otherProps}>
-      <Icon {...icon}  />
-    </Styles.Button>
+    <Styles.Provider>
+      <Styles.Root>
+        <Styles.Trigger asChild>
+          <Styles.Button aria-label={label} {...otherProps}>
+            <Icon {...icon}  />
+          </Styles.Button>
+        </Styles.Trigger>
+        <Styles.Portal>
+          <Styles.Content sideOffset={5}>
+            {textHelper}
+            <Styles.Arrow />
+          </Styles.Content>
+        </Styles.Portal>
+      </Styles.Root>
+    </Styles.Provider>
   )
 }

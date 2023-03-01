@@ -12,7 +12,7 @@ export function Avatar (props: AvatarProps) {
 
   const renderAlt = () => {
     if (src) return null
-    const altFormat = alt.trim()
+    const altFormat = alt?.trim()
 
     const hasMultipleSentence = altFormat.split(' ').length > 1
 

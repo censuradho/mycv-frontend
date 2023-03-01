@@ -9,4 +9,5 @@ type RootButtonProps = Pick<ButtonHTMLAttributes<HTMLButtonElement>,
 export interface ButtonIconProps extends RootButtonProps {
   icon: IconProps
   label: string
+  textHelper?: string
 }
