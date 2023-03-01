@@ -5,7 +5,7 @@ import { AvatarProps } from './types'
 
 export function Avatar (props: AvatarProps) {
   const {
-    alt,
+    alt = '',
     src,
     size = 40
   } = props
