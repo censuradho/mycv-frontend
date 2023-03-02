@@ -12,7 +12,7 @@ export const withAuthorization = <P extends object>(Component: ComponentType<P>)
   const router = useRouter();
 
   useEffect(() => {
-    if (!isSigned && !isLoading) {
+    if (!isSigned) {
       onNotify({
         title: 'Atenção! 🚨',
         description: 'É preciso logar para acessar a aplicação'

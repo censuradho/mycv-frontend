@@ -1,4 +1,4 @@
-import { Avatar } from "../auth/types"
+import { Avatar, User } from "../auth/types"
 
 export type CreateEntityOmit<T> = Omit<T, 'id' | 'created_at' | 'updated_at' | 'slug'>
 
@@ -56,7 +56,7 @@ export enum EnumLanguageLevel {
 }
 
 
-interface Address {
+export interface Address {
   city: string
   country: string
 }
@@ -135,6 +135,19 @@ export interface UpdateCurriculum extends Curriculum {
   languagesToDelete?: string[]
   skillsToDelete?: string[]
 }
+
+export type GetProfile = Pick<Curriculum,
+  'id'
+  | 'address'
+  | 'first_name'
+  | 'last_name'
+  | 'title'
+  | 'slug'
+  | 'is_pcd'
+> & {
+  user: Pick<User, 'avatar'>
+}
+
 export interface CreateCurriculum extends Omit<Curriculum,
   'searchable'
   | 'views'

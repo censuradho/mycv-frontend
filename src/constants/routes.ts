@@ -1,10 +1,10 @@
 export const paths = {
   home: '/',
+  search: '/search',
   cv: {
     me: '/cv/@me',
-    find: '/cv/:slug'
+    find: '/cv/:slug',
   },
-  search: '/search',
   auth: {
     signIn: '/auth/login',
     signUp: '/auth/register',

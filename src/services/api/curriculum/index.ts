@@ -1,5 +1,6 @@
 import { api } from "..";
-import { CreateCurriculum, Curriculum, UpdateCurriculum } from "./types";
+import { Pagination } from "../types";
+import { CreateCurriculum, Curriculum, GetProfile, UpdateCurriculum } from "./types";
 
 function create (payload: CreateCurriculum) {
   return api.post('/curriculum', payload)
@@ -34,6 +35,10 @@ function update (payload: UpdateCurriculum) {
   return api.put('/curriculum', payload)
 }
 
+function getProfiles () {
+  return api.get<Pagination<GetProfile>>('/curriculum/profiles')
+}
+
 export const curriculumService = {
   create,
   me,
@@ -41,5 +46,6 @@ export const curriculumService = {
   findBySlug,
   update,
   uploadAvatar,
-  destroyAvatar
+  destroyAvatar,
+  getProfiles
 }

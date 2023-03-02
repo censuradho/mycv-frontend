@@ -10,13 +10,13 @@ import { useAuth } from '@/context/auth'
 import { useRouter } from 'next/router'
 import { paths } from '@/constants/routes'
 import { Header } from '../components'
+import { useState } from 'react'
 
 export function LoginLayout () {
   const router = useRouter()
 
   const { 
     onSignInWithEmailPassword,
-    isLoading 
   } = useAuth()
 
   const {
@@ -27,10 +27,17 @@ export function LoginLayout () {
     resolver: yupResolver(signInWithEmailPasswordValidationSchema)
   })
 
+  const [isLoading, setIsLoading] = useState(false)
+   
   const onSubmit = async (data: SignInWithEmailPasswordRequest) => {
-    await onSignInWithEmailPassword(data)
-    router.push(paths.cv.me)
-  }
+    try {
+      setIsLoading(true)
+      await onSignInWithEmailPassword(data)
+      router.push(paths.cv.me)
+    } finally {
+      setIsLoading(false)
+    }
+  } 
 
   return (
     <>

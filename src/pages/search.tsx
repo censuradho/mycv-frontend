@@ -1,9 +1,7 @@
-import { MainLayout } from "@/layout/main-layout";
+import { CvSearchLayout } from "@/layout/cv/search";
 
 export default function SearchPage () {
   return (
-    <MainLayout>
-      <h1>Search</h1>
-    </MainLayout>
+    <CvSearchLayout />
   )
 }

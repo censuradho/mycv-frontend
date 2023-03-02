@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Button } from '@/components/common'
+import { paths } from '@/constants/routes'
 import Image from 'next/image'
 
 import * as Styles from './styles'
@@ -15,7 +16,7 @@ export function AboveFold () {
             habilidades e experiências de forma mais abrangente.
           </Typography>
           <Box marginTop={1}>
-            <Button>Crie seu CV</Button>
+            <Button as="a" href={paths.auth.signIn}>Crie seu CV</Button>
           </Box>
           <Styles.BgFigure>
             <Image priority src="/green.png" alt="" fill />
