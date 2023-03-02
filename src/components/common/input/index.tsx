@@ -1,6 +1,7 @@
 import { Box, ButtonIcon, Icon, TextHelper } from "@/components/common";
 import { IconProps } from "@/components/common/icon/types";
-import { forwardRef, KeyboardEvent } from "react";
+import Image from "next/image";
+import { ChangeEvent, forwardRef, KeyboardEvent } from "react";
 
 import * as Styles from "./styles";
 import { InputProps } from "./types";
@@ -16,7 +17,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     onRightIconClick,
     defaultValue,
     textHelper,
-    mask,
+    onMask,
+    format = 'string',
+    onChange,
+    disabled,
+    loading,
     ...otherProps
   } = props;
   const hasError = !!errorMessage;
@@ -44,7 +49,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     );
   };
 
-  const renderIcon = (icon: IconProps, callback?: () => void) => {
+  const renderIcon = (icon?: IconProps, callback?: () => void) => {
+    if (!icon) return null
+
     if (callback) {
       return (
         <ButtonIcon
@@ -72,19 +79,29 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   };
 
   const renderRightIcon = () => {
-    if (!rightIcon) return null;
+    if (!rightIcon && !loading) return null;
 
     return (
       <Styles.RightIconView>
-        {renderIcon(rightIcon, onRightIconClick)}
+        {loading ? (
+          <Image src="elipse-load.svg" alt="loading" width={30} height={30} />
+        ) : renderIcon(rightIcon, onRightIconClick)}
       </Styles.RightIconView>
     );
   };
 
-  const handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (!mask) return;
-    return mask(event);
-  };
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const _event = event
+
+    const parses = {
+      'number': () => event.target.value.replace(/\D/g, ''),
+      'string': () => event.target.value
+    }
+
+    _event.target.value = parses?.[format]?.()
+
+    onChange?.(_event)
+  }
 
   return (
     <Styles.Container fullWidth={fullWidth}>
@@ -94,10 +111,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         <Styles.Input
           {...otherProps}
           ref={ref}
+          disabled={disabled || loading}
+          onChange={handleChange}
           hasError={hasError}
           hasLeftIcon={!!leftIcon}
           hasRightIcon={!!rightIcon}
-          onKeyUp={handleKeyUp}
         />
         {renderRightIcon()}
       </Styles.IconView>

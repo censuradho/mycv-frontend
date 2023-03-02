@@ -18,6 +18,9 @@ type RootInputProps = Pick<InputHTMLAttributes<HTMLInputElement>,
   | "maxLength"
   | 'inputMode'
   | 'autoComplete'
+  | 'readOnly'
+  | 'onMouseDown'
+  | 'required'
 >
 
 type InputStylesProps = Pick<VariantProps<typeof Container>,
@@ -34,5 +37,7 @@ export interface InputProps extends
   onRightIconClick?: () => void;
   onLeftIconClick?: () => void;
   value?: string
-  mask?: (event: KeyboardEvent<HTMLInputElement>) => void
+  onMask?: (event: KeyboardEvent<HTMLInputElement>) => void
+  format?: 'string' | 'number'
+  loading?: boolean
 }

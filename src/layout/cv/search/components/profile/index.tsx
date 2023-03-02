@@ -16,13 +16,14 @@ export function Profile (props: ProfileProps) {
 
   const fullName = `${first_name} ${last_name}`
 
+  console.log(address)
   const renderAddress = () => {
     if (!address) return null
 
     return (
-      <Box flexDirection="column" gap={0.5} marginTop={2}>
-        <Typography>{address?.city}</Typography>
-        <Typography>{address?.country}</Typography>
+      <Box  gap={0.5} marginTop={2} fullWidth justifyContent="space-between" flexWrap="wrap">
+        <Typography size="xsm">{address?.city}</Typography>
+        <Typography size="xsm">{address?.country}</Typography>
       </Box>
     )
   }

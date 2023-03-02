@@ -52,6 +52,7 @@
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
     "@types/react-autocomplete": "^1.8.6",
-    "@types/react-datepicker": "^4.8.0"
+    "@types/react-datepicker": "^4.8.0",
+    "@types/react-input-mask": "^3.0.2"
   }
 }

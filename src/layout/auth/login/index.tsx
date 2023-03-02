@@ -37,7 +37,7 @@ export function LoginLayout () {
     } finally {
       setIsLoading(false)
     }
-  } 
+  }
 
   return (
     <>

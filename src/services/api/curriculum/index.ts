@@ -1,5 +1,5 @@
 import { api } from "..";
-import { Pagination } from "../types";
+import { Pagination, PaginationOptions } from "../types";
 import { CreateCurriculum, Curriculum, GetProfile, UpdateCurriculum } from "./types";
 
 function create (payload: CreateCurriculum) {
@@ -35,8 +35,14 @@ function update (payload: UpdateCurriculum) {
   return api.put('/curriculum', payload)
 }
 
-function getProfiles () {
-  return api.get<Pagination<GetProfile>>('/curriculum/profiles')
+function getProfiles (options?: PaginationOptions) {
+  return api.get<Pagination<GetProfile>>('/curriculum/profiles', {
+    ...(options && {
+      params: {
+        ...options
+      }
+    })
+  })
 }
 
 export const curriculumService = {

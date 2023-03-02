@@ -9,3 +9,8 @@ export interface Pagination<T> {
   data: T[]
   meta: Meta
 }
+
+export interface PaginationOptions {
+  q?: string
+  page?: number
+}

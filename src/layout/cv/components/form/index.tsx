@@ -29,6 +29,7 @@ import { useToast } from '@/context'
 import { CurriculumFormProps } from './types'
 import { InputFile } from '@/components/common/input-file'
 import { useAuth } from '@/context/auth'
+import { phoneMask } from '@/constants/masks'
 
 export const baseEmployment: CreateCurriculum['experiences'] = [{
   employer: '',
@@ -305,6 +306,8 @@ export function Form (props: CurriculumFormProps) {
                   fullWidth
                   register={register('phone')}
                   errorMessage={errors?.phone?.message}
+                  onMask={phoneMask}
+                  format="number"
                 />
               </Box>
               <Box

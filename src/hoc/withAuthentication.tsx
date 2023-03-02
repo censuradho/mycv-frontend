@@ -19,7 +19,7 @@ export const withAuthorization = <P extends object>(Component: ComponentType<P>)
       })
       router.push(paths.auth.signIn)
     };
-  }, []);
+  }, [isSigned]);
 
   if (isLoading) return null;
   
