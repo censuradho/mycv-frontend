@@ -17,14 +17,10 @@ export const Container = styled('div', {
           maxWidth: '1240px'
         }
       },
-
       lg: {
         '@laptops-min': {
-          maxWidth: '1240px'
-        },
-        '@desktop-min': {
           maxWidth: '1320px'
-        }
+        },
       }
     }
   }

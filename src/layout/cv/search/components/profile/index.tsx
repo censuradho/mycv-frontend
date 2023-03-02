@@ -16,7 +16,6 @@ export function Profile (props: ProfileProps) {
 
   const fullName = `${first_name} ${last_name}`
 
-  console.log(address)
   const renderAddress = () => {
     if (!address) return null
 

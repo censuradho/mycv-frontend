@@ -1,4 +1,4 @@
-interface Meta {
+export interface Meta {
   count: number,
   page: number,
   take: number,
@@ -12,5 +12,5 @@ export interface Pagination<T> {
 
 export interface PaginationOptions {
   q?: string
-  page?: number
+  take?: number
 }

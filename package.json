@@ -53,6 +53,7 @@
     "@types/markdown-it": "^12.2.3",
     "@types/react-autocomplete": "^1.8.6",
     "@types/react-datepicker": "^4.8.0",
-    "@types/react-input-mask": "^3.0.2"
+    "@types/react-input-mask": "^3.0.2",
+    "ts-node": "^10.9.1"
   }
 }

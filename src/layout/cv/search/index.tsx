@@ -1,34 +1,54 @@
-import { Box, Container, Input, Typography } from '@/components/common'
+import { Box, Button, Container, Input, Typography } from '@/components/common'
 import { paths } from '@/constants/routes'
 import { useBoolean } from '@/hooks'
 import { Header } from '@/layout/home/components'
 import { curriculumService } from '@/services/api/curriculum'
 import { GetProfile } from '@/services/api/curriculum/types'
-import { PaginationOptions } from '@/services/api/types'
+import { Meta, PaginationOptions } from '@/services/api/types'
 import { useRouter } from 'next/router'
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useCallback, useEffect, useState } from 'react'
 import { Profile } from './components'
 import * as Styles from './styles'
 
+import qs from 'querystring'
+
+const defaultMeta: Meta = {
+  count: 0,
+  page: 0,
+  take: 10,
+  totalPages: 0
+}
+
 export function CvSearchLayout () {
-  const { query, push } = useRouter()
+  const router = useRouter()
+  const { query } = router
 
   const { 
-    q,
-    page = 1
+    q
   } = query
 
   const [results, setResults] = useState<GetProfile[]>([])
+  const [meta, setMeta] = useState(defaultMeta)
+
   const [isLoading, toggleIsLoading] = useBoolean()
 
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState(q as string)
 
   const handleGetProfiles = async (options?: PaginationOptions) => {
     try {
       toggleIsLoading()
 
-      const { data } = await curriculumService.getProfiles(options)
+      const { data } = await curriculumService.getProfiles({
+        q: options?.q,
+        take: options?.take
+      })
+
       setResults(data.data)
+      setMeta(prevState => ({
+        ...prevState,
+        ...data.meta,
+      }))
+
     } finally {
       toggleIsLoading()
     }
@@ -37,16 +57,9 @@ export function CvSearchLayout () {
   const handleSearch = async (event: FormEvent) => {
     event.preventDefault()
 
-    push(`${paths?.search}?q=${search}`)
+    setMeta(defaultMeta)
+    router.push(`${paths?.search}?q=${search}`)
   }
-
-  const renderProfiles = results.map((value, index) => (
-    <li key={index}>
-      <Profile
-        {...value}
-      />
-    </li>
-  ))
 
   const renderEmptyMessage = () => {
     if (results.length !== 0) return null
@@ -59,18 +72,45 @@ export function CvSearchLayout () {
     )
   }
 
+  const renderResults = () => {
+    if (results.length === 0) return null
+    const renderProfiles = results.map((value, index) => (
+      <li key={index}>
+        <Profile
+          {...value}
+        />
+      </li>
+    ))
+
+    return (
+      <Box flexDirection="column" gap={3} alignItems="center">
+        <Styles.List>
+          {renderProfiles}
+        </Styles.List>
+        <Box>
+          <Button 
+            onClick={() => handleGetProfiles({
+              q: String(q),
+              take: meta?.take + 10
+            })}
+          >Carregar mais</Button>
+        </Box>
+      </Box>
+    )
+  }
+
   useEffect(() => {
     handleGetProfiles({
-      page: Number(page),
-      q: q as string
+      q: q as string,
+      ...meta
     })
-  }, [page, q])
+  }, [])
 
   return (
     <>
       <Header />
       <Container>
-        <Box flexDirection="column" justifyContent="center" alignItems="center" gap={2}>
+        <Styles.Header id="search-header">
           {q && (
             <Typography 
               as="h1" 
@@ -94,16 +134,12 @@ export function CvSearchLayout () {
               required
             />
           </Styles.Form>
-        </Box>
-      </Container>
-      <Styles.Container>
-        <Container>
+        </Styles.Header>
+        <Styles.Container>
+          {renderResults()}
           {renderEmptyMessage()}
-          <Styles.List>
-            {renderProfiles}
-          </Styles.List>
-        </Container>
-      </Styles.Container>
+        </Styles.Container>
+      </Container>
     </>
   )
 }
