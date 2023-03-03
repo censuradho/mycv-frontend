@@ -59,8 +59,8 @@ export function Footer () {
                   </Link>
                 </li>
                 <li>
-                  <Link href={`${paths.home}#support-me`}>
-                Termos e condições
+                  <Link href={paths.privacyPolicy}>
+                Politicas de privacidade
                   </Link>
                 </li>
               </Styles.List>
