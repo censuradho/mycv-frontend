@@ -8,7 +8,7 @@ export function SupportMe () {
 
   return (
     <Container>
-      <Styles.Container>
+      <Styles.Container id="support-me">
         <Box flexDirection="column" gap={1} maxWidth={500}>
           <Typography as="h3" size="md" textAlign="center" fontWeight="800">Considere apoiar este serviço</Typography>
           <Typography as="p" textAlign="center">

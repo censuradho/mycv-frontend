@@ -14,6 +14,10 @@ const SupportMe = dynamic(() => import('./components').then(t => t.SupportMe), {
   ssr: false
 })
 
+const Footer = dynamic(() => import('./components').then(t => t.Footer), {
+  ssr: false
+})
+
 export function HomeLayout () {
   return (
     <Styles.Container>
@@ -22,6 +26,7 @@ export function HomeLayout () {
       <EmploymentCta />
       <Search />
       <SupportMe />
+      <Footer />
     </Styles.Container>
   )
 }
