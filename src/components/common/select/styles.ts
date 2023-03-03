@@ -20,7 +20,6 @@ export const Trigger = styled(Select.SelectTrigger, {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  borderRadius: 4,
   padding: '0 1rem',
   fontSize: 13,
   lineHeight: 1,
@@ -29,8 +28,8 @@ export const Trigger = styled(Select.SelectTrigger, {
   borderBottom: '2px solid $transparent',
   backgroundColor: '$foreground',
   color: '$heading',
-  '&:hover': { 
-    borderColor: '$primary',
+  '&:hover, &:focus': { 
+    borderBottom: '2px solid $primary',
     color: '$ancesst8'
   },
   '&[data-placeholder]': { color: '$ancesst7' },

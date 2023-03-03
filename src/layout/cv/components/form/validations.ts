@@ -45,14 +45,14 @@ const portfolioValidationSchema = y.object({
 
 export const curriculumValidationSchema = y.object({
   title: y.string().required(FORM_ERROR_MESSAGES.required),
-  presentation: y.string().required(FORM_ERROR_MESSAGES.required),
+  presentation: y
+    .string()
+    .required(FORM_ERROR_MESSAGES.required),  
   phone: y
     .string()
     .required(FORM_ERROR_MESSAGES.required)
     .test(FORM_ERROR_MESSAGES.invalid, FORM_ERROR_MESSAGES.invalid, value => {
-      console.log(phoneValidate(value))
       return phoneValidate(value)
-    
     }),
   public_email: y.string().email(FORM_ERROR_MESSAGES.invalid).required(FORM_ERROR_MESSAGES.required),
   contact_preference: y.string().required(FORM_ERROR_MESSAGES.required),

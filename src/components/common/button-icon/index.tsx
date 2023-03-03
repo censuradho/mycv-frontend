@@ -18,12 +18,14 @@ export function ButtonIcon (props: ButtonIconProps) {
             <Icon {...icon}  />
           </Styles.Button>
         </Styles.Trigger>
-        <Styles.Portal>
-          <Styles.Content sideOffset={5}>
-            {textHelper}
-            <Styles.Arrow />
-          </Styles.Content>
-        </Styles.Portal>
+        {textHelper && (
+          <Styles.Portal>
+            <Styles.Content sideOffset={5}>
+              {textHelper}
+              <Styles.Arrow />
+            </Styles.Content>
+          </Styles.Portal>
+        )}
       </Styles.Root>
     </Styles.Provider>
   )

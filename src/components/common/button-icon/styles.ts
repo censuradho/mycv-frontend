@@ -41,7 +41,7 @@ const slideLeftAndFade = keyframes({
 export const Content = styled(Tooltip.Content, {
   borderRadius: 4,
   padding: '10px 15px',
-  fontSize: 15,
+  fontSize: '$xsm',
   lineHeight: 1,
   color: '$text',
   backgroundColor: '$tertiary',
