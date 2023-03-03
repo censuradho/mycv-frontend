@@ -50,7 +50,7 @@ export function EducationHistory (props: EducationHistoryProps) {
         <AccordionView 
           title={title || '(Não especificado)'}
           subTitle={fromTo}
-          defaultOpen={index === 0}
+          defaultOpen={index === fields.length - 1}
         >
           <Styles.Container>
             <Box
