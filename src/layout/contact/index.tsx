@@ -76,6 +76,16 @@ export function ContactLayout () {
               <Button>Enviar</Button>
             </Box>
           </Styles.Form>
+          <hr />
+          <Box justifyContent="center" marginTop={2}>
+            <Typography size="xsm" textAlign="center">Ou pelo email {' '}
+              <Typography as="strong" color="heading">
+                <a href="mailto:develo.front@gmail.com?subject=MY CV" target="_blank" rel="noreferrer">
+                develo.front@gmail.com
+                </a>
+              </Typography>
+            </Typography>
+          </Box>
         </Container>
       </Styles.Container>
       <Footer />
