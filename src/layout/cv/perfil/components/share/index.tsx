@@ -1,5 +1,4 @@
 import { Box, ButtonIcon, Icon, Typography } from '@/components/common'
-import { useRouter } from 'next/router'
 import { isBrowser } from '@/utils/helpers'
 import * as Styles from './styles'
 import { ShareProps } from './types'

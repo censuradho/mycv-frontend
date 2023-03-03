@@ -12,7 +12,7 @@ export const Container = styled('section', {
     flexDirection: 'row',
     height: 'calc(100vh - 60px)',
     overflow: 'unset',
-  }
+  },
 })
 
 export const Content = styled('div', {

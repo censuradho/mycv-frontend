@@ -9,6 +9,7 @@ export function AboveFold () {
     <Container size="md">
       <Styles.Container>
         <Styles.Content>
+          <Typography fontWeight="800" as="h1" color="primary" size="lg">My CV</Typography>
           <Typography as="h2" size="xlg" fontWeight="800" color="heading">Seja descoberto, tenha um CV Online🚀</Typography>
           <Typography as="p">
             Ao contrário de um currículo impresso, que é limitado em termos de espaço e formato, 
