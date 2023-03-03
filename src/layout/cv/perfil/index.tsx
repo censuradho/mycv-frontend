@@ -8,7 +8,11 @@ import JsPDF from 'jspdf'
 import * as Styles from './styles'
 
 import { CvPerfilProps } from './types'
-import { saveAs } from '@/utils/helpers'
+import dynamic from 'next/dynamic'
+
+const Share = dynamic(() => import('./components').then(t => t.Share), {
+  ssr: false
+})
 
 export function CvPerfilLayout (props: CvPerfilProps) {
   const { data } = props
@@ -135,6 +139,15 @@ export function CvPerfilLayout (props: CvPerfilProps) {
       <Container size="sm">
         <Styles.Header>
           <Box fullWidth marginTop={3} justifyContent="flex-end">
+            <Share>
+              <ButtonIcon 
+                textHelper="Compartilhar"
+                label="Compartilhar"
+                icon={{
+                  name: 'shareBoxLine',
+                }}
+              />
+            </Share>
             <ButtonIcon
               textHelper="Baixar PDF"
               onClick={onDownloadPdf}

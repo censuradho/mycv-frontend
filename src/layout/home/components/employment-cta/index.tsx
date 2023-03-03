@@ -13,8 +13,12 @@ export function EmploymentCta () {
           gap={1}
           alignItems="flexStart"
         >
-          <Typography as="h2" size="xlg" color="heading" fontWeight="800">Quer o profissional ideal?</Typography>
-          <Typography as="P" >Faça uma pesquisa de acordo com suas necessidades.</Typography>
+          <Typography as="h2" size="xlg" color="heading" fontWeight="800">Acesso fácil</Typography>
+          <Typography as="P">
+            currículo online pode ser facilmente acessado de qualquer lugar do mundo, a qualquer hora,{' '} 
+            desde que haja uma conexão com a internet. Isso torna mais fácil para potenciais empregadores{' '} 
+            e recrutadores acessarem seu currículo e considerarem sua candidatura, independentemente da sua localização.
+          </Typography>
           <Button as="a" href="#search">Pesquisar</Button>
         </Box>
         <Styles.Blocks>
@@ -26,8 +30,8 @@ export function EmploymentCta () {
             <Typography  fontWeight="500" color="heading">para criar seu perfil</Typography>
           </Styles.Block>
           <Styles.Block>
-            <Styles.BlockTitle>+4k</Styles.BlockTitle>
-            <Typography fontWeight="500" color="heading">de currículos</Typography>
+            <Styles.BlockTitle>Online</Styles.BlockTitle>
+            <Typography fontWeight="500" color="heading">Compartilhe a url</Typography>
           </Styles.Block>
           <Styles.Figure>
             <Image src="/Mask group (1).jpg" fill alt="" />
