@@ -34,14 +34,15 @@ export function CvPerfilLayout (props: CvPerfilProps) {
 
     const renderItems = data?.experiences?.map((value, index) => {
 
-      const { final_date, initial_date } = value
+      const { final_date, initial_date, is_main } = value
 
+      const currentFinal = is_main ? 'Atualmente' : final_date ? format(new Date(final_date), 'MMM yyyy') : ''
        
       return (
         <li key={index}>
           <Box flexDirection="column" gap={0.3}>
             <Typography as="strong" color="heading" size="xsm">{`${value.employer} — ${value.title}`}</Typography>
-            <Styles.FromTo>{`${format(new Date(initial_date), 'MMM yyyy')} - ${final_date ? format(new Date(final_date), 'MMM yyyy') : 'Atualmente'}`}</Styles.FromTo>
+            <Styles.FromTo>{`${format(new Date(initial_date), 'MMM yyyy')} - ${currentFinal}`}</Styles.FromTo>
           </Box>
           <Styles.JobDescription dangerouslySetInnerHTML={{ __html: value.description }} />
         </li>
@@ -61,14 +62,15 @@ export function CvPerfilLayout (props: CvPerfilProps) {
 
     const renderItems = data?.educations?.map((value, index) => {
 
-      const { final_date, initial_date } = value
+      const { final_date, initial_date, is_main } = value
 
+      const currentFinal = is_main ? 'Atualmente' : final_date ? format(new Date(final_date), 'MMM yyyy') : ''
        
       return (
         <li key={index}>
           <Box flexDirection="column" gap={0.3}>
             <Typography as="strong" color="heading" size="xsm">{`${value.institution_name} — ${value.title},  ${value.level}`}</Typography>
-            <Styles.FromTo>{`${format(new Date(initial_date), 'MMM yyyy')} - ${final_date ? format(new Date(final_date), 'MMM yyyy') : 'Atualmente'}`}</Styles.FromTo>
+            <Styles.FromTo>{`${format(new Date(initial_date), 'MMM yyyy')} - ${currentFinal}`}</Styles.FromTo>
           </Box>
           {value?.description && <Styles.JobDescription dangerouslySetInnerHTML={{ __html: value?.description }} />}
         </li>
