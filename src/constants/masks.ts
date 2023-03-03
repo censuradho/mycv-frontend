@@ -65,13 +65,13 @@ export const phoneMask = (event: any) => {
   const target = event.target as HTMLInputElement;
   target.maxLength = 15;
 
-  let date = numberMask(target.value)
+  let value = numberMask(target.value)
 
-  date = date
+  value = value
     .replace(/\D/g, "")
-    .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, "($1) $2 $3-$4");
+    .replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, "($1) $2$3-$4");
 
-  event.target.value = date;
+  event.target.value = value;
   return event;
 };
 

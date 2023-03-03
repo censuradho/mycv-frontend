@@ -3,12 +3,10 @@ import { paths } from '@/constants/routes'
 import { useAuth } from '@/context/auth'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import * as Styles from './styles'
 
 export function Header () {
   const { isSigned } = useAuth()
-  const router = useRouter()
 
   const renderButtons = () => {
     if (isSigned) return <Button as="a" href={paths.cv.me}>Meu perfil</Button>
@@ -29,7 +27,6 @@ export function Header () {
       <Box flex={1} justifyContent="flex-end" gap={1} alignItems="center">
         {renderButtons()}
       </Box>
-
     </Styles.Container>
   )
 }

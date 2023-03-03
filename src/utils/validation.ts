@@ -30,10 +30,12 @@ function sequenceValidate (sequence: string) {
 * console.log(validarTelefone(telefone4)); // false
 */
 export function phoneValidate (phone: string) {
-  const isSequence = sequenceValidate(phone)
+  const phoneClear = phone.replace(/\D/g, '').trim()
+
+  const isSequence = sequenceValidate(phoneClear)
 
   if (isSequence) return false
 
-  var regex = /^\(?\d{2}\)?[-.\s]?\d{4,5}[-.\s]?\d{4}$/;
+  var regex = /^\([1-9]{2}\) 9?[6-9]\d{3}\-\d{4}$/;
   return regex.test(phone);
 }

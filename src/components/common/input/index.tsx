@@ -19,7 +19,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     textHelper,
     onMask,
     format = 'string',
-    onChange,
     disabled,
     loading,
     ...otherProps
@@ -45,7 +44,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
     return (
       <Styles.ErrorMessage color="error">{errorMessage}</Styles.ErrorMessage>
-
     );
   };
 
@@ -90,19 +88,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     );
   };
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const _event = event
-
-    const parses = {
-      'number': () => event.target.value.replace(/\D/g, ''),
-      'string': () => event.target.value
-    }
-
-    _event.target.value = parses?.[format]?.()
-
-    onChange?.(_event)
-  }
-
   return (
     <Styles.Container fullWidth={fullWidth}>
       {renderLabel()}
@@ -112,10 +97,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           {...otherProps}
           ref={ref}
           disabled={disabled || loading}
-          onChange={handleChange}
           hasError={hasError}
           hasLeftIcon={!!leftIcon}
           hasRightIcon={!!rightIcon}
+          onKeyUp={onMask}
         />
         {renderRightIcon()}
       </Styles.IconView>

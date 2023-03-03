@@ -69,7 +69,8 @@ export const basicPortfolio: CreateCurriculum['portfolios'] = [{
 
 export function Form (props: CurriculumFormProps) {
   const { 
-    defaultValue
+    defaultValue,
+    onRefresh
   } = props
 
   const { auth, onAuth } = useAuth()
@@ -154,6 +155,7 @@ export function Form (props: CurriculumFormProps) {
     }
     
     await curriculumService.create(data)
+    await onAuth()
     onNotify({
       title: 'Salvo com sucesso ✅'
     })
