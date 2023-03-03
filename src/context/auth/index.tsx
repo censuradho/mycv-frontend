@@ -145,6 +145,7 @@ export function AuthProvider (props: PropsWithChildren) {
       return config
     }, error => Promise.reject(error))
   }, [])
+
   return (
     <AuthContext.Provider
       value={{

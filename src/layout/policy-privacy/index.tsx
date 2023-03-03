@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Box, Container, Typography } from '@/components/common'
 import { isBrowser } from '@/utils/helpers'
 import dynamic from 'next/dynamic'
