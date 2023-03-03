@@ -50,13 +50,13 @@ export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => 
 
 export default function CvPerfilPage (props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <MainLayout>
+    <>
       <Head 
         title={`${props.data?.first_name} ${props?.data?.last_name}`}
         description={props?.data?.presentation.slice(0, 100)}
       />
       <CvPerfilLayout {...props} />
-    </MainLayout>
+    </>
   )
 }
 

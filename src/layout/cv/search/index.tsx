@@ -1,16 +1,13 @@
 import { Box, Button, Container, Input, Typography } from '@/components/common'
-import { paths } from '@/constants/routes'
-import { useBoolean } from '@/hooks'
 import { Header } from '@/layout/home/components'
 import { curriculumService } from '@/services/api/curriculum'
 import { GetProfile } from '@/services/api/curriculum/types'
 import { Meta, PaginationOptions } from '@/services/api/types'
 import { useRouter } from 'next/router'
-import { FormEvent, useCallback, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { Profile } from './components'
 import * as Styles from './styles'
 
-import qs from 'querystring'
 
 const defaultMeta: Meta = {
   count: 0,

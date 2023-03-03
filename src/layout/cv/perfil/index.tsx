@@ -9,6 +9,7 @@ import * as Styles from './styles'
 
 import { CvPerfilProps } from './types'
 import dynamic from 'next/dynamic'
+import { Footer, Header } from '@/layout/home/components'
 
 const Share = dynamic(() => import('./components').then(t => t.Share), {
   ssr: false
@@ -136,6 +137,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
 
   return (
     <>
+      <Header />
       <Container size="sm">
         <Styles.Header>
           <Box fullWidth marginTop={3} justifyContent="flex-end">
@@ -194,6 +196,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
           </Box>
         </Styles.Container>
       </Container>
+      <Footer />
     </>
   )
 }
