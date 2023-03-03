@@ -30,13 +30,13 @@ export function CvSearchLayout () {
   const [results, setResults] = useState<GetProfile[]>([])
   const [meta, setMeta] = useState(defaultMeta)
 
-  const [isLoading, toggleIsLoading] = useBoolean()
+  const [isLoading, setIsLoading] = useState(true)
 
   const [search, setSearch] = useState(q as string)
 
   const handleGetProfiles = async (options?: PaginationOptions) => {
     try {
-      toggleIsLoading()
+      setIsLoading(true)
 
       const { data } = await curriculumService.getProfiles({
         q: options?.q,
@@ -50,19 +50,24 @@ export function CvSearchLayout () {
       }))
 
     } finally {
-      toggleIsLoading()
+      setIsLoading(false)
     }
   }
 
   const handleSearch = async (event: FormEvent) => {
     event.preventDefault()
+  
+    router.push(`${router.pathname}?q=${search}`)
+    handleGetProfiles({
+      q: search,
+      take: meta.take
+    })
 
     setMeta(defaultMeta)
-    router.push(`${paths?.search}?q=${search}`)
   }
 
   const renderEmptyMessage = () => {
-    if (results.length !== 0) return null
+    if (results.length !== 0 || isLoading) return null
 
     return (
       <Box flex={1} flexDirection="column" gap={0.5} justifyContent="center" alignItems="center">
@@ -87,14 +92,16 @@ export function CvSearchLayout () {
         <Styles.List>
           {renderProfiles}
         </Styles.List>
-        <Box>
-          <Button 
-            onClick={() => handleGetProfiles({
-              q: String(q),
-              take: meta?.take + 10
-            })}
-          >Carregar mais</Button>
-        </Box>
+        {meta?.take <= meta?.count && (
+          <Box>
+            <Button 
+              onClick={() => handleGetProfiles({
+                q: String(q),
+                take: meta?.take + 10
+              })}
+            >Carregar mais</Button>
+          </Box>
+        )}
       </Box>
     )
   }
