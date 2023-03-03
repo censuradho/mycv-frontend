@@ -5,6 +5,7 @@ export const paths = {
     me: '/cv/@me',
     find: '/cv/:slug',
   },
+  contact: '/contact',
   auth: {
     signIn: '/auth/login',
     signUp: '/auth/register',

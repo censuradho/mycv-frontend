@@ -49,7 +49,7 @@ export function Footer () {
               <Typography as="strong" color="ancesst8">Links rápidos</Typography>
               <Styles.List>
                 <li>  
-                  <Link href="contato">
+                  <Link href={paths.contact}>
                 Contato
                   </Link>
                 </li>
