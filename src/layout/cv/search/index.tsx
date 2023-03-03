@@ -89,6 +89,9 @@ export function CvSearchLayout () {
 
     return (
       <Box flexDirection="column" gap={3} alignItems="center">
+        <Box justifyContent="flex-start" fullWidth>
+          <Typography as='strong' color="primary">{meta?.count} resultados<Typography fontWeight="500" color="text">  encontrados</Typography></Typography>
+        </Box>
         <Styles.List>
           {renderProfiles}
         </Styles.List>
