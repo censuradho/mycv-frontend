@@ -48,9 +48,6 @@ export function PolicyPrivacyLayout () {
             ciente de que você concorda com as disposições estabelecidas neste contrato ao utilizar este site. Se, no entanto, você não concorda com alguma{' '} 
             ou todas as partes deste documento, interrompa o uso do site imediatamente.
             </Typography>
-          </Styles.ContentView>
-          <Styles.ContentView>
-            <Typography as="h2">Termos e Condições</Typography>
             <Typography as="p">
             Este acordo, conhecido daqui em diante como Termos e Condições, é legalmente vinculativo e executável. Os usuários já{' '} 
             foram aconselhados a ler o conteúdo do acordo antes de prosseguir com o uso do serviço. Como usuário, o uso contínuo de www.cvkeep.com{' '} 
@@ -60,7 +57,7 @@ export function PolicyPrivacyLayout () {
             </Typography>
           </Styles.ContentView>
           <Styles.ContentView>
-            <Typography as="h2">USO AUTORIZADO DESTE SITE</Typography>
+            <Typography as="h2">Uso autorizado deste site</Typography>
             <Typography as="p">
             O usuário está autorizado a usar os serviços do www.cvkeep.com apenas de acordo com os Termos{' '} 
             e Condições, seguindo o preceito da boa fé.

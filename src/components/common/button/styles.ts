@@ -66,6 +66,21 @@ export const Button = styled('button', {
         }
       },
 
+      danger: {
+        background: '$error',
+        '*': {
+          color: '#fff',
+        },
+        padding: '0.7rem 1.4rem',
+        letterSpacing: '0.05rem',
+        textTransform: 'uppercase',
+        border: '2px solid transparent',
+
+        '&:hover, &:focus': {
+          borderColor: '$heading'
+        }
+
+      },
       letter: {
         background: 'none',
         height: 'auto',

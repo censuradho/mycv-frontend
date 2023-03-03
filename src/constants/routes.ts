@@ -1,6 +1,7 @@
 export const paths = {
   home: '/',
   search: '/search',
+  settings: '/settings',
   cv: {
     me: '/cv/@me',
     find: '/cv/:slug',

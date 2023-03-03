@@ -12,7 +12,7 @@ export function Menu () {
   return (
     <Styles.Portal>
       <Styles.Content>
-        <Styles.Item>Configurações</Styles.Item>
+        <Styles.Item onClick={() => router.push(paths.settings)}>Configurações</Styles.Item>
         <Styles.Item onClick={() => router.push(paths.cv.me)}>Meu currículo</Styles.Item>
         {auth?.curriculum?.slug && (
           <Styles.Item 

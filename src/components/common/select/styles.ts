@@ -28,6 +28,7 @@ export const Trigger = styled(Select.SelectTrigger, {
   borderBottom: '2px solid $transparent',
   backgroundColor: '$foreground',
   color: '$heading',
+
   '&:hover, &:focus': { 
     borderBottom: '2px solid $primary',
     color: '$ancesst8'
