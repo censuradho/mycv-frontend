@@ -6,6 +6,7 @@ export const paths = {
     find: '/cv/:slug',
   },
   contact: '/contact',
+  privacyPolicy: '/privacy-policy',
   auth: {
     signIn: '/auth/login',
     signUp: '/auth/register',

@@ -10,6 +10,9 @@ import reactGA from "react-ga4";
 
 import { globalStyle } from 'stitches.config'
 
+const CookieWarn = dynamic(() => import('@/components/cookie-warn').then(t => t.CookieWarn), {
+  ssr: false
+})
 const ToastProvider = dynamic(() => import('@/context').then(c => c.ToastProvider), {
   ssr: false
 })
@@ -26,6 +29,7 @@ export default function MyApp ({ Component, pageProps }: AppProps) {
 
   return (
     <ToastProvider>
+      <CookieWarn />
       <AuthProvider>
         <Component {...pageProps} />
       </AuthProvider>
