@@ -5,7 +5,7 @@ export function Head (props: HeadProps) {
   const {
     description,
     title,
-    image = 'http://mycv.vercel.app/og-image.png',
+    image = 'https://mycv-online.vercel.app/og-image.png',
     og,
     twitter
   } = props
