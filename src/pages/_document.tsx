@@ -21,7 +21,7 @@ class MyDocument extends Document {
 
   render () {
     return (
-      <Html lang="en">
+      <Html lang="pt-BR">
         <Head>
           <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
         </Head>
