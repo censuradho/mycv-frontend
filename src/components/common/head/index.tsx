@@ -2,13 +2,16 @@ import { appSettings } from '@/config/appSettings'
 import NextHead from 'next/head'
 import { HeadProps } from './types'
 
+import qs from 'querystring'
+
 export function Head (props: HeadProps) {
   const {
     description,
     title,
     image = 'https://mycv-online.vercel.app/og-image.png',
     og,
-    twitter
+    twitter,
+    ogCustom
   } = props
 
   const twitterMeta = {
@@ -23,6 +26,8 @@ export function Head (props: HeadProps) {
     image: og?.image || image
   }
 
+  const query = ogCustom ? qs.stringify(ogCustom) : ''
+
   return (
     <NextHead>
       <title>{title}</title>
@@ -32,7 +37,7 @@ export function Head (props: HeadProps) {
       <meta property="og:type" content="article" />
       {ogMeta.title && <meta property="og:title" content={ogMeta.title} />}
       {ogMeta.description && <meta property="og:description" content={ogMeta.description} />}
-      {ogMeta.image && <meta property="og:image" content={ogMeta.image} />}
+      {ogMeta.image && !ogCustom && <meta property="og:image" content={ogMeta.image} />}
       <meta name="twitter:card" content="summary" />
       {twitterMeta.title && <meta property="twitter:title" content={twitterMeta.title} />}
       {twitterMeta.image && <meta property="twitter:image" content={twitterMeta.image} />}
@@ -43,10 +48,12 @@ export function Head (props: HeadProps) {
       <link rel="icon" type="image/png" href="/favicon.ico" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-      <meta
-        property="og:image"
-        content={`${appSettings.siteUrl}/api/og?username=myusername`}
-      />
+      {ogCustom && query && (
+        <meta
+          property="og:image"
+          content={`${appSettings.siteUrl}/api/og?${query}`}
+        />
+      )}
     </NextHead>
   )
 }
