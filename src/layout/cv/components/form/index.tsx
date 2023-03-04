@@ -118,6 +118,8 @@ export function Form (props: CurriculumFormProps) {
   const [languagesToDelete, setLanguageToDelete] = useState<string[]>([])
   const [skillsToDelete, setSkillsToDelete] = useState<string[]>([])
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const getCities = useDebounceCallback(async (cityName: string) => {
     const { data } = await placeServices.findByCityName(cityName)
     setCities(data)
@@ -140,25 +142,34 @@ export function Form (props: CurriculumFormProps) {
   }))
 
   const onSubmit = async (data: any) => {
-    if (defaultValue) {
+    try {
+      setIsLoading(true)
+
+      if (defaultValue) {
+  
+        await curriculumService.update({
+          ...data,
+          ...(skillsToDelete.length > 0 && {skillsToDelete}),
+          ...(languagesToDelete.length > 0 && {languagesToDelete}),
+          ...(educationsToDelete.length > 0 && {educationsToDelete}),
+          ...(experiencesToDelete.length > 0 && {experiencesToDelete}),
+          ...(portfoliosToDelete.length > 0 && {portfoliosToDelete}),
+        })
+        onNotify({
+          title: 'Salvo com sucesso ✅'
+        })
+
+        return
+      }
+      
+      await curriculumService.create(data)
+      await onAuth()
       onNotify({
         title: 'Salvo com sucesso ✅'
       })
-      return await curriculumService.update({
-        ...data,
-        ...(skillsToDelete.length > 0 && {skillsToDelete}),
-        ...(languagesToDelete.length > 0 && {languagesToDelete}),
-        ...(educationsToDelete.length > 0 && {educationsToDelete}),
-        ...(experiencesToDelete.length > 0 && {experiencesToDelete}),
-        ...(portfoliosToDelete.length > 0 && {portfoliosToDelete}),
-      })
+    } finally {
+      setIsLoading(false)
     }
-    
-    await curriculumService.create(data)
-    await onAuth()
-    onNotify({
-      title: 'Salvo com sucesso ✅'
-    })
   }
 
   const handleUploadImage = async (file: File | null) => {
@@ -476,7 +487,7 @@ export function Form (props: CurriculumFormProps) {
             />
           </Box>
           <Box marginTop={2}>
-            <Button fullWidth>Salvar</Button>
+            <Button loading={isLoading} fullWidth>Salvar</Button>
           </Box>
         </Styles.Form>
       </Styles.Container>
