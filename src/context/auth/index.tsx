@@ -117,6 +117,12 @@ export function AuthProvider (props: PropsWithChildren) {
       const { status } = response || {}
       const { description = '' } = (response?.data || {}) as { description?: string }
 
+      if (status && status >= 500) {
+        onNotify({
+          title: 'Atenção 🚨',
+          description: API_ERRORS.INTERNAL_SERVER_ERROR
+        })
+      }
       if (status && status >= 400 && description) {
         onNotify({
           title: 'Atenção 🚨',
