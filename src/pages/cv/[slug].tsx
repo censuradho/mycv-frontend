@@ -49,11 +49,28 @@ export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => 
 
 
 export default function CvPerfilPage (props: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { 
+    first_name, 
+    last_name,
+    title,
+    address,
+    user
+  } = props?.data
+
+  const fullName = `${first_name} ${last_name}`
+
   return (
     <>
       <Head 
-        title={`${props.data?.first_name} ${props?.data?.last_name}`}
+        title={fullName}
         description={props?.data?.presentation.slice(0, 100)}
+        ogCustom={{
+          name: fullName,
+          country: address?.country,
+          jobTitle: title,
+          city: address?.city,
+          avatar: user?.avatar?.url
+        }}
       />
       <CvPerfilLayout {...props} />
     </>

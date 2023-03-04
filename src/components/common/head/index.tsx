@@ -1,3 +1,4 @@
+import { appSettings } from '@/config/appSettings'
 import NextHead from 'next/head'
 import { HeadProps } from './types'
 
@@ -42,6 +43,10 @@ export function Head (props: HeadProps) {
       <link rel="icon" type="image/png" href="/favicon.ico" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <meta
+        property="og:image"
+        content={`${appSettings.siteUrl}/api/og?username=myusername`}
+      />
     </NextHead>
   )
 }

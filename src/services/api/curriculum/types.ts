@@ -106,6 +106,7 @@ export interface Curriculum {
   id: string
   views: number
   slug: string
+  user: User
   searchable: boolean
   civil_state: keyof typeof CivilState
   title: string

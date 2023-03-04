@@ -12,4 +12,11 @@ export interface HeadProps {
     title?: string
     image?: string
   }
+  ogCustom?: {
+    name?: string
+    jobTitle?: string
+    city?: string
+    country?: string
+    avatar?: string
+  }
 }
