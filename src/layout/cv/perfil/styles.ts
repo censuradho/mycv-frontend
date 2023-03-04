@@ -5,7 +5,7 @@ export const Container = styled('div', {
   display: 'flex',
   flexDirection: 'column-reverse',
   gap: '2rem',
-
+  minHeight: 'calc(100vh - 60px)',
   '@table-min': {
     flexDirection: 'row',
 

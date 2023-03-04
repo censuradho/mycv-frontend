@@ -1,7 +1,6 @@
 import { Head } from "@/components/common";
 import { CvPerfilLayout } from "@/layout/cv/perfil";
 import { CvPerfilProps } from "@/layout/cv/perfil/types";
-import { MainLayout } from "@/layout/main-layout";
 import { curriculumService } from "@/services/api/curriculum";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
@@ -63,7 +62,7 @@ export default function CvPerfilPage (props: InferGetStaticPropsType<typeof getS
     <>
       <Head 
         title={fullName}
-        description={props?.data?.presentation.slice(0, 100)}
+        description={props?.data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
         ogCustom={{
           name: fullName,
           country: address?.country,

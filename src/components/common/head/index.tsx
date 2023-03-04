@@ -15,7 +15,7 @@ export function Head (props: HeadProps) {
   } = props
 
   const twitterMeta = {
-    description: twitter?.title || title,
+    description: twitter?.description || description,
     image: twitter?.image || image,
     title: twitter?.title || title
   }
@@ -32,9 +32,10 @@ export function Head (props: HeadProps) {
     <NextHead>
       <title>{title}</title>
       {description && <meta name="description" content={description}/>}
+      <meta property="twitter:card" content="summary_large_image" />
       <meta name="language-lp" content="pt-BR" />
       <meta property="og:locale" content="pt-BR" />
-      <meta property="og:type" content="article" />
+      <meta property="og:type" content="website" />
       {ogMeta.title && <meta property="og:title" content={ogMeta.title} />}
       {ogMeta.description && <meta property="og:description" content={ogMeta.description} />}
       {ogMeta.image && !ogCustom && <meta property="og:image" content={ogMeta.image} />}
