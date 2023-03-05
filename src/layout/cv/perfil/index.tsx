@@ -150,15 +150,6 @@ export function CvPerfilLayout (props: CvPerfilProps) {
                 }}
               />
             </Share>
-            <ButtonIcon
-              textHelper="Baixar PDF"
-              onClick={onDownloadPdf}
-              label="Baixar currículo como PDF"
-              icon={{
-                name: 'documentDownload',
-                color: 'text'
-              }}
-            />
           </Box>
         </Styles.Header>
       </Container>

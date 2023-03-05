@@ -86,6 +86,12 @@ export function EmploymentHistory (props: EmploymentHistoryProps) {
               label="Atual"
               id={`${name}.${index}.is_main`}
               errorMessage={errors?.[index]?.is_main?.message}
+              onCheckedChange={checked => checked &&
+                update(index, {
+                  ...value,
+                  final_date: null
+                })
+              }
             />
             <Box gap={1}>
               <DatePickerForm

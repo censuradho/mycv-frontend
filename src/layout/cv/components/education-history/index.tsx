@@ -187,7 +187,7 @@ export function EducationHistory (props: EducationHistoryProps) {
               control={control} 
               label="Atual"
               errorMessage={errors?.[index]?.is_main?.message}
-              onCheckedChange={() => update(index, { 
+              onCheckedChange={(checked) => checked && update(index, { 
                 ...value,
                 final_date: null
               })}

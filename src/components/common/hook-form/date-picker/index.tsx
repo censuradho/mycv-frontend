@@ -2,7 +2,6 @@ import { DatePickerFormProps } from "./types";
 
 import { DatePicker } from "@/components/common";
 import { Controller } from "react-hook-form";
-import { format } from "@/lib/date-fns";
 
 export function DatePickerForm (props: DatePickerFormProps) {
   const { 
@@ -19,7 +18,6 @@ export function DatePickerForm (props: DatePickerFormProps) {
         <DatePicker
           {...otherProps}
           {...field}
-          // value={field.value && otherProps?.dateFormat && format(new Date(field.value), String(otherProps?.dateFormat) || 'dd/mm/yyyy')}
         />
       )}
     />
