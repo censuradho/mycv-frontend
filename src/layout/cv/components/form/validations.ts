@@ -13,8 +13,10 @@ const experienceSchemaValidation = y.object({
     .typeError(FORM_ERROR_MESSAGES.invalid),
   final_date: y
     .date()
-    .required(FORM_ERROR_MESSAGES.required)
-    .typeError(FORM_ERROR_MESSAGES.invalid),
+    .when(['is_main', 'initial_date'], ([is_main, initial_date], schema) => {
+      if (is_main) return schema
+      return schema.required(FORM_ERROR_MESSAGES.required)
+    })
 })
 
 const educationValidationSchema = y.object({
@@ -22,15 +24,18 @@ const educationValidationSchema = y.object({
   level: y.string().required(FORM_ERROR_MESSAGES.required),
   institution_name: y.string().required(FORM_ERROR_MESSAGES.required),
   situation: y.string().required(FORM_ERROR_MESSAGES.required),
+  is_main: y.boolean(),
   initial_date: y
     .date()
     .required(FORM_ERROR_MESSAGES.required)
     .typeError(FORM_ERROR_MESSAGES.invalid),
   final_date: y
     .date()
-    .required(FORM_ERROR_MESSAGES.required)
-    .typeError(FORM_ERROR_MESSAGES.invalid),
-  is_main: y.boolean(),
+    .nullable()
+    .when(['is_main', 'initial_date'], ([is_main, initial_date], schema) => {
+      if (is_main) return schema
+      return schema.required(FORM_ERROR_MESSAGES.required)
+    })
 })
 
 const skillValidationSchema = y.object({

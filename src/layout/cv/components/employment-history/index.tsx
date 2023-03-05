@@ -10,6 +10,7 @@ import { SwitchForm } from "@/components/common/hook-form/switch";
 import { format } from "@/lib/date-fns";
 import { baseEmployment } from "../form";
 import * as Styles from './styles';
+import { useEffect } from "react";
 
 export function EmploymentHistory (props: EmploymentHistoryProps) {
   const {
@@ -32,7 +33,6 @@ export function EmploymentHistory (props: EmploymentHistoryProps) {
     name,
     keyName: '_id'
   })
-
 
   const handleRemove = (index: number, id?: string) => {
     id && onRemove?.(id)

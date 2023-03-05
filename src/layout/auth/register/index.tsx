@@ -42,6 +42,14 @@ export function RegisterLayout () {
               <Typography>Seja Bem-vindo!</Typography>
             </Box>
             <InputForm 
+              label="Nome completo"
+              register={register('username')}
+              fullWidth
+              inputMode="text"
+              type="text"
+              errorMessage={errors?.username?.message}
+            />
+            <InputForm 
               label="E-mail"
               register={register('email')}
               fullWidth
@@ -54,14 +62,6 @@ export function RegisterLayout () {
               register={register('password')}
               fullWidth
               errorMessage={errors?.password?.message}
-            />
-            <InputForm 
-              label="Nome completo"
-              register={register('username')}
-              fullWidth
-              inputMode="text"
-              type="text"
-              errorMessage={errors?.username?.message}
             />
             <Box justifyContent="flex-end" fullWidth>
               <Typography size="xsm">Ja é membro? <UnderlineLink href={paths.auth.signIn}>Faça login</UnderlineLink></Typography>

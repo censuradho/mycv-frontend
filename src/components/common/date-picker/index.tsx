@@ -33,7 +33,7 @@ export const DatePicker= forwardRef<any, DatePickerProps>((props, ref) => {
     <Styles.Container fullWidth={fullWidth}>
       {renderLabel()}
       <ReactDatePicker
-        ref={ref}
+        customInput={<input ref={ref} value={otherProps.value} />}
         {...otherProps}
         // value={otherProps.value ? format(new Date(otherProps.value) , 'dd/MM/yyyy') : ''}
         selected={otherProps.selected || otherProps?.value && new Date(otherProps?.value) || undefined}

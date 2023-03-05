@@ -202,7 +202,7 @@ export function EducationHistory (props: EducationHistoryProps) {
                 control={control}
                 showMonthYearPicker
                 dateFormat="MMM, yyyy"
-                errorMessage={errors?.[index]?.final_date?.message}
+                errorMessage={errors?.[index]?.initial_date?.message}
               />
               <DatePickerForm 
                 name={`educations.${index}.final_date`}
