@@ -34,7 +34,7 @@ const educationValidationSchema = y.object({
     .nullable()
     .when(['is_main', 'initial_date'], ([is_main, initial_date], schema) => {
       if (is_main) return schema
-      return schema.required(FORM_ERROR_MESSAGES.required)
+      return schema.min(initial_date, FORM_ERROR_MESSAGES.mustBeBiggerThanInitialDate).required(FORM_ERROR_MESSAGES.required)
     })
 })
 

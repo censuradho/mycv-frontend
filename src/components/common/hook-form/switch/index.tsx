@@ -8,6 +8,7 @@ export function SwitchForm (props: SwitchFormProps) {
   const {
     control,
     name,
+    onCheckedChange,
     ...otherProps
   } = props
 
@@ -19,7 +20,10 @@ export function SwitchForm (props: SwitchFormProps) {
         <Switch
           checked={field.value}
           ref={field.ref}
-          onCheckedChange={checked => field.onChange(checked)}
+          onCheckedChange={checked => {
+            onCheckedChange?.(checked)
+            field.onChange(checked)
+          }}
           onBlur={field.onBlur}
           {...otherProps}
         />

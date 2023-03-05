@@ -1,6 +1,7 @@
 export const FORM_ERROR_MESSAGES = {
   required: 'Campo obrigatório',
-  invalid: 'Formato inválido'
+  invalid: 'Formato inválido',
+  mustBeBiggerThanInitialDate: 'A data final deve ser maior que a data inicial'
 }
 
 export const API_ERROR_MESSAGES = {
@@ -8,5 +9,5 @@ export const API_ERROR_MESSAGES = {
   'Access token not provided': 'Deve fazer login para entrar na plataforma.',
   'Error access_token is revoked': 'Sessão expirada',
   'EMAIL_PASSWORD_INCORRECT': 'E-mail ou senha incorretos.',
-  'USER_ALREADY_EXIST': 'Usuário já existe'
+  'USER_ALREADY_EXIST': 'Usuário já existe',
 }

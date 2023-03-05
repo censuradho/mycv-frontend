@@ -5,6 +5,7 @@ export interface SwitchFormProps extends Pick<SwitchProps,
   | 'label'
   | 'id'
   |  'errorMessage'
+  | 'onCheckedChange'
 > {
   control: Control<FieldValues, any> | undefined
   name: string

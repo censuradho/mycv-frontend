@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import { DatePickerProps } from "./types";
 import * as Styles from './styles'
+import { format } from "@/lib/date-fns";
 
 registerLocale('pt-BR', ptBR)
 
@@ -35,7 +36,7 @@ export const DatePicker= forwardRef<any, DatePickerProps>((props, ref) => {
       <ReactDatePicker
         customInput={<input ref={ref} value={otherProps.value} />}
         {...otherProps}
-        // value={otherProps.value ? format(new Date(otherProps.value) , 'dd/MM/yyyy') : ''}
+        value={otherProps.value ? format(new Date(otherProps.value) , (otherProps?.dateFormat as string)  || 'dd/MM/yyyy') : ''}
         selected={otherProps.selected || otherProps?.value && new Date(otherProps?.value) || undefined}
         locale="pt-BR" 
       />

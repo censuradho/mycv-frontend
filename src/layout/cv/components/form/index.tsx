@@ -106,6 +106,8 @@ export function Form (props: CurriculumFormProps) {
     'address'
   ])
 
+  console.log(educations)
+
   const [searchCity, setSearchCity] = useState(address?.city || '')
   const [searchCountry, setSearchCountry] = useState(address?.country || '')
 
