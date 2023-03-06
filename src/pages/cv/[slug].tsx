@@ -4,6 +4,25 @@ import { CvPerfilProps } from "@/layout/cv/perfil/types";
 import { curriculumService } from "@/services/api/curriculum";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
+
+export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
+  const { slug } = context?.params || {}
+
+  const { data } = await curriculumService.findBySlug(slug as string)
+    
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+  
+  return {
+    props: {
+      data
+    },
+  }
+}
+
 function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { 
     first_name, 
@@ -26,24 +45,6 @@ function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSidePr
   )
 }
 
-export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
-  const { slug } = context?.params || {}
-
-  console.log(slug)
-  const { data } = await curriculumService.findBySlug(slug as string)
-    
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-  
-  return {
-    props: {
-      data
-    },
-  }
-}
 
 
 export default CvPerfilPage
