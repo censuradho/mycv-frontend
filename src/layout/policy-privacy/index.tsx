@@ -36,6 +36,23 @@ export function PolicyPrivacyLayout () {
         </Styles.Header>
         <Container>
           <Styles.ContentView>
+            <Typography as="h2">Coleta e uso de dados</Typography>
+            <Typography as="p">
+                Com o objetivo de oferecer nossos produtos, tornar a sua experiência melhor, cumprir com eventuais obrigações{' '} 
+                legais ou regulatórias, entre outras situações, a Arezzo&Co pode coletar alguns dos seus dados pessoais caso você{' '} 
+                interaja conosco. Na tabela abaixo, você pode encontrar alguns exemplos de quais são os dados coletados e para quais{' '} 
+                finalidades os utilizamos. Veja que, a depender de sua relação e interação conosco, diferentes tratamentos poderão ser realizados.
+            </Typography>
+            <Typography as="h3">Navegação no Site</Typography>
+            <Typography as="p">Dados de navegação - dados coletados por meio de cookies ou device IDs, incluindo IP, data e hora de acesso,{' '} 
+              localização geográfica, tipo de navegador, duração da visita, páginas visitadas. Dados sobre o dispositivo de acesso - modelo,{' '} 
+              fabricante, sistema operacional, operadora de telefonia, tipo de navegador, velocidade da conexão através do Google Analytics 4 (GA4).
+            </Typography>
+            <Typography as="p">
+              O registro desas métricas tem finalidade de medir engajamento e configurações de devices para melhorar a experiência de usuário.
+            </Typography>
+          </Styles.ContentView>
+          <Styles.ContentView>
             <Typography as="h2">Termos e Condições</Typography>
             <Typography as="p">
           Os seguintes termos e condições descritos nesta página servem como o acordo legal entre o cliente {' '}

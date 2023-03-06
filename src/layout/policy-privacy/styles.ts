@@ -22,6 +22,12 @@ export const ContentView = styled('section', {
     marginBottom: '1.5rem',
     lineHeight: '2.5rem'
   },
+  h3: {
+    display: 'block',
+    marginBottom: '1.3rem',
+    fontWeight: '500',
+    lineHeight: '2rem'
+  },
   p: {
     display: 'inline-block',
     lineHeight: '1.9rem',
