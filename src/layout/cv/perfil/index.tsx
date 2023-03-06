@@ -156,16 +156,16 @@ export function CvPerfilLayout (props: CvPerfilProps) {
               </Box>
             </Box>
             <Styles.List>
-              {renderExperiences()}
+              {/* {renderExperiences()}
               {renderEducation()}
-              {renderPortfolios()}
+              {renderPortfolios()} */}
             </Styles.List> 
           </Box>
           <Box flexDirection="column" style={{ minWidth: '200px' }}>
             <Typography as="p" size="xsm" color="heading">{`${data?.address?.country} ${data?.address?.city ? ', ' + data?.address?.city : ''}`}</Typography>
             <Typography as="p" size="xsm" color="heading">{data?.phone}</Typography>
             <Typography as="p" size="xsm" color="heading">{data?.public_email}</Typography>
-            {renderSkills()}
+            {/* {renderSkills()} */}
           </Box>
         </Styles.Container>
       </Container>
