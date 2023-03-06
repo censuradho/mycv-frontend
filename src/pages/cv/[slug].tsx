@@ -21,27 +21,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => {
-  try {
-    const { slug } = context?.params || {}
+  const { slug } = context?.params || {}
 
-    const { data } = await curriculumService.findBySlug(slug as string)
+  const { data } = await curriculumService.findBySlug(slug as string)
   
-    if (!data) return {
-      notFound: true,
-      revalidate: 10
-    }
-    
-    return {
-      props: {
-        data
-      },
-      revalidate: 10
-    }
-  } catch (err) {
-    return {
-      notFound: true,
-      revalidate: 10
-    }
+  return {
+    props: {
+      data
+    },
+    revalidate: 10
   }
 }
 
@@ -63,13 +51,6 @@ export default function CvPerfilPage (props: InferGetStaticPropsType<typeof getS
       <Head 
         title={fullName}
         description={props?.data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
-        ogCustom={{
-          name: fullName,
-          country: address?.country,
-          jobTitle: title,
-          city: address?.city,
-          avatar: user?.avatar?.url
-        }}
       />
       <CvPerfilLayout {...props} />
     </>

@@ -29,7 +29,7 @@ export function Footer () {
                   </Link>
                 </li>
                 <li>
-                  <Link href={paths.auth.signIn}>
+                  <Link href={paths.auth.signUp}>
                 Cadastro
                   </Link>
                 </li>
@@ -39,7 +39,7 @@ export function Footer () {
                   </Link>
                 </li>
                 <li>
-                  <Link href={paths.auth.signIn}>
+                  <Link href={paths.contact}>
                 Denunciar CV
                   </Link>
                 </li>
