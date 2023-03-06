@@ -13,11 +13,9 @@ export function EmploymentCta () {
           gap={1}
           alignItems="flexStart"
         >
-          <Typography as="h2" size="xlg" color="heading" fontWeight="800">Acesso fácil</Typography>
+          <Typography as="h2" size="xlg" color="heading" fontWeight="800">Padrões que trazem resultado</Typography>
           <Typography as="P">
-            currículo online pode ser facilmente acessado de qualquer lugar do mundo, a qualquer hora,{' '} 
-            desde que haja uma conexão com a internet. Isso torna mais fácil para potenciais empregadores{' '} 
-            e recrutadores acessarem seu currículo e considerarem sua candidatura, independentemente da sua localização.
+            Um currículo bem feito pode aumentar suas chances de conseguir uma entrevista e ajudá-lo a conquistar o emprego que deseja.
           </Typography>
           <Button as="a" href="#search">Pesquisar</Button>
         </Box>
