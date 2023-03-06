@@ -1,3 +1,4 @@
+import NextHead from 'next/head'
 import { HeadProps } from './types'
 
 import qs from 'querystring'
@@ -28,7 +29,7 @@ export function Head (props: HeadProps) {
   const query = ogCustom ? qs.stringify(ogCustom) : ''
 
   return (
-    <>
+    <NextHead>
       <title>{title}</title>
       {description && <meta name="description" content={description}/>}
       <meta property="twitter:card" content="summary_large_image" />
@@ -54,6 +55,6 @@ export function Head (props: HeadProps) {
           content={`${appSettings.siteUrl}/api/og?${query}`}
         />
       )}
-    </>
+    </NextHead>
   )
 }
