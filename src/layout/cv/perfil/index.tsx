@@ -1,15 +1,11 @@
 import { Box, ButtonIcon, Container, Icon, Typography } from '@/components/common'
 import { format } from '@/lib/date-fns'
-import { useRef } from 'react'
-
-import html2canvas from 'html2canvas'
-import JsPDF from 'jspdf'
 
 import * as Styles from './styles'
 
-import { CvPerfilProps } from './types'
-import dynamic from 'next/dynamic'
 import { Footer, Header } from '@/layout/home/components'
+import dynamic from 'next/dynamic'
+import { CvPerfilProps } from './types'
 
 const Share = dynamic(() => import('./components').then(t => t.Share), {
   ssr: false
@@ -19,20 +15,6 @@ export function CvPerfilLayout (props: CvPerfilProps) {
   const { data } = props
 
   const username = `${data?.first_name} ${data?.last_name}`
-
-  const documentRef = useRef<HTMLDivElement | null>(null)
-  
-  const onDownloadPdf = async () => {
-    if (!documentRef?.current) return
-    const pdf = new JsPDF() as any
-
-    const image  = await html2canvas(documentRef!.current)
-    const imageData = image.toDataURL()
-
-    pdf.addImage(imageData, 'PNG', 10, 10)
-
-    pdf.save(`${username}.pdf`);
-  }
 
   const renderExperiences = () => {
     if (data?.experiences?.length === 0) return null
@@ -153,7 +135,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
           </Box>
         </Styles.Header>
       </Container>
-      <Container size="sm" ref={documentRef}>
+      <Container size="sm">
         <Styles.Container>
           <Box flexDirection="column">
             <Box alignItems="flexStart" gap={2}>
@@ -163,7 +145,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
                   size="xlg" 
                   fontWeight="600" 
                   color="heading"
-                >{`${data?.first_name} ${data?.last_name}`}</Typography>
+                >{username}</Typography>
                 <Typography 
                   size="md"
                   color="heading"

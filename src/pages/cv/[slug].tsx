@@ -9,7 +9,6 @@ export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (cont
 
   const { data } = await curriculumService.findBySlug(slug as string)
   
-  
   if (!data) {
     return {
       notFound: true,
