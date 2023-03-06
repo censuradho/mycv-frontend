@@ -49,7 +49,7 @@ export function CookieWarn () {
             >
               Utilizo cookies nesse site para maximizar a experiência de usuário.
               Para mais informações sobre todos os cookies que utilizamos, por favor veja em <UnderlineLink
-                href={paths.privacyPolicy}
+                href={`${paths.privacyPolicy}/#data-collection-and-use`}
               >Cookies</UnderlineLink>
             </Typography>
 

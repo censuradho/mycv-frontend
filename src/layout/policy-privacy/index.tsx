@@ -30,13 +30,13 @@ export function PolicyPrivacyLayout () {
               gap={0.8}
             >
               <Typography fontWeight="800" as="h1" color="primary">Politicas de privacidade</Typography>
-              <Typography >última atualização no dia <Typography as="strong">03 de Maio, 2023</Typography></Typography>
+              <Typography >última atualização no dia <Typography as="strong">06 de Maio, 2023</Typography></Typography>
             </Box>
           </Container>
         </Styles.Header>
         <Container>
           <Styles.ContentView>
-            <Typography as="h2">Coleta e uso de dados</Typography>
+            <Typography as="h2" id="data-collection-and-use">Coleta e uso de dados</Typography>
             <Typography as="p">
                 Com o objetivo de oferecer nossos produtos, tornar a sua experiência melhor, cumprir com eventuais obrigações{' '} 
                 legais ou regulatórias, entre outras situações, a Arezzo&Co pode coletar alguns dos seus dados pessoais caso você{' '} 
