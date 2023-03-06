@@ -21,7 +21,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
 
     const renderItems = data?.experiences?.map((value, index) => {
 
-      const { final_date, initial_date, is_main } = value
+      const { final_date, initial_date, is_main } = value || {}
 
       const currentFinal = is_main ? 'Atualmente' : final_date ? format(new Date(final_date), 'MMM yyyy') : ''
        
@@ -49,7 +49,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
 
     const renderItems = data?.educations?.map((value, index) => {
 
-      const { final_date, initial_date, is_main } = value
+      const { final_date, initial_date, is_main } = value || {}
 
       const currentFinal = is_main ? 'Atualmente' : final_date ? format(new Date(final_date), 'MMM yyyy') : ''
        
@@ -78,7 +78,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
 
     const renderItems = data?.portfolios?.map((value, index) => {
 
-      const { name, link, icon } = value
+      const { name, link, icon } = value || {}
 
        
       return (
