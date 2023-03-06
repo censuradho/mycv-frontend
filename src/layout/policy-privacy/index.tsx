@@ -219,7 +219,7 @@ export function PolicyPrivacyLayout () {
           <Styles.ContentView>
             <Typography as="h2">Exclusão de dados</Typography>
             <Typography as="p">
-              A qualquer momento você pode remover seus dados do CV Keep. Depois de solicitar a exclusão da sua conta, removeremos automaticamente seus dados. Para encerrar sua conta CV Keep, você deve seguir estas etapas:
+              A qualquer momento você pode remover seus dados do My CV. Depois de solicitar a exclusão da sua conta, removeremos automaticamente seus dados. Para encerrar sua conta My CV, você deve seguir estas etapas:
             </Typography>
             <ol>
               <li>Navegue até <a href={fullUrl()} target="_blank" rel="noreferrer">{fullUrl()}</a></li>
