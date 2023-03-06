@@ -20,7 +20,6 @@ export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (cont
     props: {
       data
     },
-    revalidate: 10
   }
 }
 
