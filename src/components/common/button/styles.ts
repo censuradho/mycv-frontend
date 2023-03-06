@@ -35,14 +35,13 @@ export const Button = styled('button', {
         letterSpacing: '0.05rem',
 
         '&:disabled': {
-          background: '$disabled'
+          opacity: 0.7
         },
         '> *': {
           color: '$background',
           fontWeight: 600
         },
         '&:hover': {
-          background: '$ancesst0',
           borderColor: 'white',
 
           '> *': {
