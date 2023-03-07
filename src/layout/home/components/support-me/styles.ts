@@ -23,7 +23,7 @@ const contentShow = keyframes({
 });
 
 export const Overlay = styled(Dialog.Overlay, {
-  backgroundColor: '$backgroundOverlay',
+  // backgroundColor: '$backgroundOverlay',
   position: 'fixed',
   inset: 0,
   animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
