@@ -4,7 +4,6 @@ import { CvPerfilProps } from "@/layout/cv/perfil/types";
 import { curriculumService } from "@/services/api/curriculum";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-
 export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
   const { slug } = context?.params || {}
 
@@ -27,9 +26,6 @@ function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSidePr
   const { 
     first_name, 
     last_name,
-    title,
-    address,
-    user
   } = props?.data
 
   const fullName = `${first_name} ${last_name}`
@@ -38,7 +34,7 @@ function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSidePr
     <>
       <Head 
         title={fullName}
-        description={props?.data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
+        description={props?.data?.presentation?.slice(0, 100).replace(/<p>|<\/p>/g, '')}
       />
       <CvPerfilLayout {...props} />
     </>
