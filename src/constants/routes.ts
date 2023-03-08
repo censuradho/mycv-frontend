@@ -3,7 +3,7 @@ export const paths = {
   search: '/search',
   settings: '/settings',
   cv: {
-    me: '/cv/@me',
+    me: '/@me',
     find: '/cv/:slug',
   },
   contact: '/contact',
