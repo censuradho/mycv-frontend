@@ -49,7 +49,7 @@ function CvPerfilPage (props: InferGetStaticPropsType<typeof getStaticProps>) {
     <>
       <Head 
         title={fullName}
-        description={props?.data?.presentation?.slice(0, 100).replace(/<p>|<\/p>/g, '')}
+        description={props?.data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
       />
       <CvPerfilLayout {...props} />
     </>

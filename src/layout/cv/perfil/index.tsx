@@ -72,7 +72,6 @@ export function CvPerfilLayout (props: CvPerfilProps) {
     )
   }
 
-
   const renderPortfolios = () => {
     if (data?.portfolios?.length === 0) return null
 
@@ -99,8 +98,6 @@ export function CvPerfilLayout (props: CvPerfilProps) {
     )
   }
 
-
-
   const renderSkills = () => {
     if (!data?.skills || data?.skills?.length === 0) return null
 
@@ -118,7 +115,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
   }
 
   return (
-    <>
+    <div>
       <Header />
       <Container size="sm">
         <Styles.Header>
@@ -170,6 +167,6 @@ export function CvPerfilLayout (props: CvPerfilProps) {
         </Styles.Container>
       </Container>
       <Footer />
-    </>
+    </div>
   )
 }
