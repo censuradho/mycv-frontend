@@ -2,27 +2,42 @@ import { Head } from "@/components/common";
 import { CvPerfilLayout } from "@/layout/cv/perfil";
 import { CvPerfilProps } from "@/layout/cv/perfil/types";
 import { curriculumService } from "@/services/api/curriculum";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
-export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await curriculumService.findAll()
+
+  const paths = data.map(value => ({
+    params: {
+      slug: value.slug
+    }
+  }))
+
+  return {
+    paths,
+    fallback: 'blocking'
+  }
+}
+
+export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => {
   const { slug } = context?.params || {}
 
   const { data } = await curriculumService.findBySlug(slug as string)
-    
-  if (!data) {
-    return {
-      notFound: true,
-    }
+
+  if (!data) return {
+    notFound: true,
   }
   
   return {
     props: {
       data
     },
+    revalidate: 10
   }
 }
 
-function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSideProps>) {
+function CvPerfilPage (props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { 
     first_name, 
     last_name,
