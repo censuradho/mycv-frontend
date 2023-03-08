@@ -136,7 +136,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
         <Styles.Container>
           <Box flexDirection="column">
             <Box alignItems="flexStart" gap={2}>
-              <Box flexDirection="column" gap={0.2} flex={1}>
+              <Box fullWidth flexDirection="column" gap={0.2} flex={1}>
                 <Typography 
                   as="h1"
                   size="xlg" 

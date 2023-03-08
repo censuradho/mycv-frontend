@@ -39,7 +39,10 @@ export const FromTo = styled('span', {
 
 export const Presentation = styled('p', {
   fontSize: '$xsm',
-  paddingTop: '0.5rem'
+  paddingTop: '0.5rem',
+  width: '100%',
+  display: 'flex',
+  flexWrap: 'wrap'
 })
 
 export const JobDescription = styled('div', {

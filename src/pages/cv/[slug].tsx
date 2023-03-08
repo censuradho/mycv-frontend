@@ -27,6 +27,7 @@ export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => 
 
   if (!data) return {
     notFound: true,
+    revalidate: 10
   }
   
   return {
