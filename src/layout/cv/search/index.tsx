@@ -1,14 +1,18 @@
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+
 import { Box, Button, Container, Input, Typography } from '@/components/common'
 import { Header } from '@/layout/home/components'
 import { curriculumService } from '@/services/api/curriculum'
 import { GetProfile } from '@/services/api/curriculum/types'
 import { Meta, PaginationOptions } from '@/services/api/types'
-import { useRouter } from 'next/router'
 import { FormEvent, useEffect, useState } from 'react'
-import { Profile } from './components'
+
 import * as Styles from './styles'
 
-
+const Profile = dynamic(() => import('./components').then(t => t.Profile), {
+  ssr: false
+})
 const defaultMeta: Meta = {
   count: 0,
   page: 0,

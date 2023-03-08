@@ -152,7 +152,7 @@ export function CvPerfilLayout (props: CvPerfilProps) {
                 >
                   {data?.title}
                 </Typography>
-                <Styles.Presentation dangerouslySetInnerHTML={{ __html: data?.presentation.replace(/<br\>/g, '')}} />
+                <Styles.Presentation dangerouslySetInnerHTML={{ __html: data?.presentation.replace(/<br\>|<p>| <\/p>/g, '')}} />
               </Box>
             </Box>
             <Styles.List>
