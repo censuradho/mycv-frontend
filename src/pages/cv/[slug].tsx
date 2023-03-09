@@ -7,17 +7,9 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await curriculumService.findAll()
-
-  const paths = data.map(value => ({
-    params: {
-      slug: value.slug
-    }
-  }))
-
   return {
-    paths,
-    fallback: 'blocking'
+    paths: [],
+    fallback: false
   }
 }
 
@@ -28,8 +20,7 @@ export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => 
   const data = await response.json()
 
   if (!data) return {
-    notFound: true,
-    revalidate: 10
+    notFound: true  
   }
   
   return {
