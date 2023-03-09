@@ -3,18 +3,18 @@ import { CvPerfilProps } from "@/layout/cv/perfil/types";
 import { curriculumService } from "@/services/api/curriculum";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context?.params || {}
 
-  const [response] = await Promise.all([
-    curriculumService.findBySlug(slug as string)
-  ])
+  // const [response] = await Promise.all([
+  //   curriculumService.findBySlug(slug as string)
+  // ])
 
-  const { data } = response
-  
+  // const { data } = response
+
   return {
     props: {
-      data
+      slug
     },
   }
 }
