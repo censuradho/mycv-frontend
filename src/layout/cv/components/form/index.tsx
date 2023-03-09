@@ -399,6 +399,9 @@ export function Form (props: CurriculumFormProps) {
               control={control}
               key={new Date().getTime()}
               errorMessage={errors.presentation?.message}
+              options={{
+                heading: false
+              }}
             />
             <Box flexDirection="column" gap={0.5}>
               <Styles.SectionTitle>Histórico profissional</Styles.SectionTitle>

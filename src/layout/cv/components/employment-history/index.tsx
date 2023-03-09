@@ -122,6 +122,9 @@ export function EmploymentHistory (props: EmploymentHistoryProps) {
               name={`${name}.${index}.description`}
               control={control}
               errorMessage={errors?.[index]?.description?.message}
+              options={{
+                heading: false
+              }}
             />
           </Styles.Container>
         </AccordionView>

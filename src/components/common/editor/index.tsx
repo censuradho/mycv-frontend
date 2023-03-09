@@ -1,6 +1,6 @@
 import { useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { forwardRef, memo, useEffect } from 'react'
+import { forwardRef } from 'react'
 
 import { ToolBar } from './components'
 
@@ -15,16 +15,24 @@ export const Editor = forwardRef<any, EditorProps>((props, ref) => {
     onFocus,
     errorMessage,
     label,
-    id
+    id,
+    type = 'html',
+    options,
   } = props
-
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure(options)
     ],
     content: value || undefined,
     onUpdate({ editor }) {
-      onChange?.(editor.getHTML())
+      const types = {
+        html: editor.getHTML(),
+        text: editor.getText()
+      }
+
+      const value = types[type]
+      const parsedValue = value === '<p></p>' ? '' : value
+      onChange?.(parsedValue)
     },
     onFocus({ event }) {
       onFocus?.(event)
@@ -39,7 +47,11 @@ export const Editor = forwardRef<any, EditorProps>((props, ref) => {
       <Styles.Label htmlFor={id}>{label}</Styles.Label>
       <Styles.Content>
         <ToolBar editor={editor} />
-        <Styles.Editor ref={ref} id={id} editor={editor} />
+        <Styles.Editor 
+          ref={ref} 
+          id={id} 
+          editor={editor}  
+        />
       </Styles.Content>
       <Styles.ErrorMessage>{errorMessage}</Styles.ErrorMessage>
     </Styles.Container>

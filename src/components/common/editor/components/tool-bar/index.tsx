@@ -7,6 +7,7 @@ export function ToolBar (props: ToolBarProps) {
 
   if (!editor) return null
 
+
   return (
     <Styles.Container>
       <nav>
@@ -22,7 +23,7 @@ export function ToolBar (props: ToolBarProps) {
             </Styles.Button>
           </li>
           <li>
-            <Styles.Button 
+            <Styles.Button
               onClick={() => editor?.chain().focus().toggleItalic().run()}
               type="button"
               active={editor?.isActive('italic')}
@@ -41,15 +42,7 @@ export function ToolBar (props: ToolBarProps) {
               <Icon name="lineThrough" size={18} />
             </Styles.Button>
           </li>
-          <li>
-            <Styles.Button
-              onClick={() => editor?.chain().focus().toggleBulletList().run()}
-              active={editor?.isActive('bulletList')}
-              type="button"
-            >
-              <Icon name="listUl" size={18} />
-            </Styles.Button>
-          </li>
+
           <li>
             <Styles.Button
               onClick={() => editor?.chain().focus().toggleOrderedList().run()}

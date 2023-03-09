@@ -19,10 +19,6 @@ export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => 
   const response = await fetch(`${appSettings.backend_url}/curriculum/${slug}`)
   const data = await response.json()
 
-  if (!data) return {
-    notFound: true  
-  }
-  
   return {
     props: {
       data
