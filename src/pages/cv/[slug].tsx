@@ -27,10 +27,10 @@ function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSidePr
 
   return (
     <>
-      <Head 
+      {/* <Head 
         title={fullName}
         description={props?.data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
-      />
+      /> */}
       {/* <CvPerfilLayout {...props} /> */}
       <h1>{first_name}</h1>
     </>
