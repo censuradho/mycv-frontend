@@ -29,6 +29,8 @@ export const getDefaultMetaTag = (options: Metadata): Metadata => {
       locale: 'pt-BR'
     },
     twitter: {
+      ...(title && ({ title })),
+      ...(description && ({ description })),
       card: 'summary',
       ...twitter,
     },
