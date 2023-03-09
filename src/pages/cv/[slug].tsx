@@ -1,15 +1,17 @@
 import { Head } from "@/components/common";
-import { appSettings } from "@/config/appSettings";
-import { CvPerfilLayout } from "@/layout/cv/perfil";
 import { CvPerfilProps } from "@/layout/cv/perfil/types";
+import { curriculumService } from "@/services/api/curriculum";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
   const { slug } = context?.params || {}
 
-  const response = await fetch(`${appSettings.backend_url}/curriculum/${slug}`)
-  const data = await response.json()
+  const [response] = await Promise.all([
+    curriculumService.findBySlug(slug as string)
+  ])
 
+  const { data } = response
+  
   return {
     props: {
       data
