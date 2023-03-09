@@ -1,3 +1,5 @@
+'use client'
+
 import { appSettings } from "@/config/appSettings";
 import { paths } from "@/constants/routes";
 import { useLocalStorage } from "@/hooks";
@@ -7,7 +9,7 @@ import { SignInWithEmailPasswordRequest, SignUpWithEmailPasswordRequest } from "
 import { API_ERRORS } from "@/services/api/errors";
 import { isBrowser } from "@/utils/helpers";
 import { AxiosError } from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useState } from "react";
 import { useToast } from "../toast";
 import { Auth, AuthContextParams } from "./types";

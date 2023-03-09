@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, ButtonIcon, Container, Icon, Typography } from '@/components/common'
 import { format } from '@/lib/date-fns'
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { Toast } from "@/components/common";
 import { ToastMessage } from "@/components/common/toast/types";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
@@ -5,12 +7,7 @@ import { ToastContextProps } from "./types";
 
 const ToastContext = createContext({} as ToastContextProps)
 
-const defaultMessage = {
-  title: '',
-  description: ''
-}
-
-export function ToastProvider ({ children}: PropsWithChildren) {
+export function ToastProvider ({ children }: PropsWithChildren) {
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState<ToastMessage | null>()
 

@@ -8,7 +8,7 @@ export const appSettings = {
   analytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 } 
 
-export const getDefaultMetaTag = (options: Metadata): Metadata => {
+export const getMetaTag = (options: Metadata): Metadata => {
   const { 
     title, 
     description,

@@ -1,8 +1,9 @@
+import { forwardRef } from 'react'
 import { Icon } from '../icon'
 import * as Styles from './styles'
 import { ButtonIconProps } from './types'
 
-export function ButtonIcon (props: ButtonIconProps) {
+export const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>((props, ref) => {
   const {
     icon,
     label,
@@ -13,7 +14,7 @@ export function ButtonIcon (props: ButtonIconProps) {
   return (
     <Styles.Provider>
       <Styles.Root>
-        <Styles.Trigger asChild>
+        <Styles.Trigger ref={ref} asChild>
           <Styles.Button aria-label={label} {...otherProps}>
             <Icon {...icon}  />
           </Styles.Button>
@@ -29,4 +30,4 @@ export function ButtonIcon (props: ButtonIconProps) {
       </Styles.Root>
     </Styles.Provider>
   )
-}
+}) 

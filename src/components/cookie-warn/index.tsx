@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Button, Typography, UnderlineLink } from '@/components/common'
 import { appSettings } from '@/config/appSettings'
 import { paths } from '@/constants/routes'
