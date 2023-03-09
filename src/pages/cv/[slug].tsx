@@ -1,4 +1,5 @@
 import { Head } from "@/components/common";
+import { appSettings } from "@/config/appSettings";
 import { CvPerfilLayout } from "@/layout/cv/perfil";
 import { CvPerfilProps } from "@/layout/cv/perfil/types";
 import { curriculumService } from "@/services/api/curriculum";
@@ -23,7 +24,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<CvPerfilProps> = async (context) => {
   const { slug } = context?.params || {}
 
-  const { data } = await curriculumService.findBySlug(slug as string)
+  const response = await fetch(`${appSettings.backend_url}/curriculum/${slug}`)
+  const data = await response.json()
 
   if (!data) return {
     notFound: true,
