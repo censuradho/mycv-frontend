@@ -38,7 +38,7 @@
     "jspdf": "^2.5.1",
     "keen-slider": "^6.8.5",
     "markdown-it": "^13.0.1",
-    "next": "^13.0.0",
+    "next": "^13.2.4",
     "react": "18.2.0",
     "react-autocomplete": "^1.8.1",
     "react-datepicker": "^4.10.0",
