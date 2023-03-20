@@ -7,6 +7,7 @@ import * as Styles from './styles'
 
 import { Footer, Header } from '@/layout/home/components'
 import dynamic from 'next/dynamic'
+
 import { CvPerfilProps } from './types'
 
 const Share = dynamic(() => import('./components').then(t => t.Share), {

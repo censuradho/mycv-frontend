@@ -1,20 +1,17 @@
 import { Head } from "@/components/common";
+import { CvPerfilLayout } from "@/layout/cv/perfil";
 import { CvPerfilProps } from "@/layout/cv/perfil/types";
 import { curriculumService } from "@/services/api/curriculum";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
   const { slug } = context?.params || {}
 
-  // const [response] = await Promise.all([
-  //   curriculumService.findBySlug(slug as string)
-  // ])
-
-  // const { data } = response
+  const { data } = await curriculumService.findBySlug(slug as string)
 
   return {
     props: {
-      slug
+      data
     },
   }
 }
@@ -29,11 +26,11 @@ function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSidePr
 
   return (
     <>
-      {/* <Head 
+      <Head 
         title={fullName}
         description={props?.data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
-      /> */}
-      {/* <CvPerfilLayout {...props} /> */}
+      />
+      <CvPerfilLayout {...props} />
       <h1>{first_name}</h1>
     </>
   )
