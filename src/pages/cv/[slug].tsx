@@ -4,25 +4,23 @@ import { CvPerfilProps } from "@/layout/cv/perfil/types";
 import { curriculumService } from "@/services/api/curriculum";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
-export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
-  try {
-    const { slug } = context?.params || {}
+const isServerReq = (req: any) => !req.url.startsWith('/_next');
 
-    const { data } = await curriculumService.findBySlug(slug as string)
+export const getServerSideProps: GetServerSideProps<CvPerfilProps | { data: null }> = async (context) => {
+  const { slug } = context?.params || {}
+
+  const { data } = await curriculumService.findBySlug(slug as string)
   
-    return {
-      props: {
-        data
-      },
-    }
-  } catch (err) {
-    return {
-      notFound: true,
-    }
+  return {
+    props: {
+      data: isServerReq(context) ? data : null
+    },
   }
 }
 
 function CvPerfilPage (props: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  if (!props?.data) return null
+  
   const { 
     first_name, 
     last_name,
