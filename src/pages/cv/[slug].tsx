@@ -5,14 +5,20 @@ import { curriculumService } from "@/services/api/curriculum";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 export const getServerSideProps: GetServerSideProps<CvPerfilProps> = async (context) => {
-  const { slug } = context?.params || {}
+  try {
+    const { slug } = context?.params || {}
 
-  const { data } = await curriculumService.findBySlug(slug as string)
-
-  return {
-    props: {
-      data
-    },
+    const { data } = await curriculumService.findBySlug(slug as string)
+  
+    return {
+      props: {
+        data
+      },
+    }
+  } catch (err) {
+    return {
+      notFound: true,
+    }
   }
 }
 
