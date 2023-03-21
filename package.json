@@ -50,6 +50,7 @@
     "react-dom": "^18.2.0",
     "react-ga4": "^2.1.0",
     "react-hook-form": "^7.43.7",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "yup": "^1.0.2"
   }
 }
