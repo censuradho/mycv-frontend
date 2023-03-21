@@ -89,7 +89,21 @@ export const Button = styled('button', {
         '> *': {
           color: '$primary'
         }
-      }
+      },
+      highlight: {
+        background: '$ancesst6',
+        padding: '0.7rem 1rem',
+        fontWeight: 500,
+        borderRadius: '$default',
+        border: '2px solid transparent',
+        
+        '&:hover, &:focus': {
+          borderColor: '$ancesst0',
+        },
+        '*': {
+          color: '$heading'
+        }
+      },
     }
   },
   defaultVariants: {

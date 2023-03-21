@@ -18,7 +18,6 @@ async function signInWithEmailPassword (payload: SignInWithEmailPasswordRequest)
   return data
 }
 
-
 function signOut () {
   delete api.defaults.headers['Authorization']
 }
@@ -27,11 +26,15 @@ function resetPassword (payload: ResetPasswordRequest) {
   return api.post('/auth/reset-password', payload)
 }
 
+function deleteAccount () {
+  return api.delete('/auth')
+}
 
 export const authService = {
   signUpWithEmailPassword,
   signInWithEmailPassword,
   me,
   signOut,
-  resetPassword
+  resetPassword,
+  delete: deleteAccount
 }
