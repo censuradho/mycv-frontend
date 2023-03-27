@@ -20,6 +20,7 @@ const Share = dynamic(() => import('./components').then(t => t.Share), {
 
 export function CvPerfilLayout () {
   const router = useRouter()
+  const { slug } = router.query
 
   const [data, setData] = useState<Curriculum | null>(null)
 
@@ -124,8 +125,7 @@ export function CvPerfilLayout () {
     )
   }
 
-  const handleGetCurriculum = async () => {
-    const { slug } = router.query
+  const handleGetCurriculum = async (slug: string) => {
 
     const { data: curriculum } = await curriculumService.findBySlug(slug as string)
 
@@ -133,16 +133,16 @@ export function CvPerfilLayout () {
   }
 
   useEffect(() => {
-    handleGetCurriculum()
-  }, [])
+    if (!slug) return;
 
-  if (!data) return null
+    handleGetCurriculum(slug as string)
+  }, [slug])
 
   return (
     <div>
       <Head 
         title={username}
-        description={data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
+        description={data?.presentation?.slice(0, 100).replace(/<p>|<\/p>/g, '')}
       />
       <Header />
       <Container size="sm">
