@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, ButtonIcon, Container, Icon, Typography } from '@/components/common'
+import { Box, ButtonIcon, Container, Head, Icon, Typography } from '@/components/common'
 import { format } from '@/lib/date-fns'
 
 import * as Styles from './styles'
@@ -9,13 +9,20 @@ import { Footer, Header } from '@/layout/home/components'
 import dynamic from 'next/dynamic'
 
 import { CvPerfilProps } from './types'
+import { useEffect, useState } from 'react';
+import { Curriculum } from '@/services/api/curriculum/types';
+import { useRouter } from 'next/router';
+import { curriculumService } from '@/services/api/curriculum';
 
 const Share = dynamic(() => import('./components').then(t => t.Share), {
   ssr: false
 })
 
-export function CvPerfilLayout (props: CvPerfilProps) {
-  const { data } = props
+export function CvPerfilLayout () {
+  const router = useRouter()
+
+  const [data, setData] = useState<Curriculum | null>(null)
+
 
   const username = `${data?.first_name} ${data?.last_name}`
 
@@ -117,8 +124,24 @@ export function CvPerfilLayout (props: CvPerfilProps) {
     )
   }
 
+  const handleGetCurriculum = async () => {
+    const { slug } = router.query
+
+    const { data: curriculum } = await curriculumService.findBySlug(slug as string)
+
+    setData(curriculum)
+  }
+
+  useEffect(() => {
+    handleGetCurriculum()
+  }, [])
+
   return (
     <div>
+      <Head 
+        title={username}
+        description={data?.presentation.slice(0, 100).replace(/<p>|<\/p>/g, '')}
+      />
       <Header />
       <Container size="sm">
         <Styles.Header>
@@ -152,7 +175,11 @@ export function CvPerfilLayout (props: CvPerfilProps) {
                 >
                   {data?.title}
                 </Typography>
-                <Styles.Presentation dangerouslySetInnerHTML={{ __html: data?.presentation.replace(/<br\>|<p>| <\/p>/g, '')}} />
+                <Styles.Presentation 
+                  dangerouslySetInnerHTML={{ 
+                    __html: data ? data?.presentation?.replace(/<br\>|<p>| <\/p>/g, '') : ''
+                  }} 
+                />
               </Box>
             </Box>
             <Styles.List>
