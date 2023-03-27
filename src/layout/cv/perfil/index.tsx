@@ -136,6 +136,8 @@ export function CvPerfilLayout () {
     handleGetCurriculum()
   }, [])
 
+  if (!data) return null
+
   return (
     <div>
       <Head 
