@@ -35,13 +35,13 @@ export function Head (props: HeadProps) {
       <meta name="language-lp" content="pt-BR" />
       <meta property="og:locale" content="pt-BR" />
       <meta property="og:type" content="website" />
-      {ogMeta.title && <meta property="og:title" content={ogMeta.title} />}
-      {ogMeta.description && <meta property="og:description" content={ogMeta.description} />}
+      <meta property="og:title" content={ogMeta.title} />
+      <meta property="og:description" content={ogMeta.description} />
       {/* {ogMeta.image && !ogCustom && <meta property="og:image" content={ogMeta.image} />} */}
       <meta name="twitter:card" content="summary" />
-      {twitterMeta.title && <meta property="twitter:title" content={twitterMeta.title} />}
+      <meta property="twitter:title" content={twitterMeta.title} />
       {/* {twitterMeta.image && <meta property="twitter:image" content={twitterMeta.image} />} */}
-      {twitterMeta.description && <meta property="twitter:description" content={twitterMeta.description} />}
+      <meta property="twitter:description" content={twitterMeta.description} />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
