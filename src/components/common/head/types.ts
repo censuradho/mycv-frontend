@@ -1,6 +1,6 @@
 export interface HeadProps {
   title: string
-  description?: string
+  description: string
   image?: string
   og?: {
     description?: string
