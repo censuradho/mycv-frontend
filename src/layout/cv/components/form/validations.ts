@@ -64,6 +64,10 @@ export const curriculumValidationSchema = y.object({
     .test(FORM_ERROR_MESSAGES.invalid, FORM_ERROR_MESSAGES.invalid, value => {
       return phoneValidate(value)
     }),
+  address: y.object({
+    city: y.string().required(FORM_ERROR_MESSAGES.required),
+    country: y.string().required(FORM_ERROR_MESSAGES.required),
+  }),
   public_email: y.string().email(FORM_ERROR_MESSAGES.invalid).required(FORM_ERROR_MESSAGES.required),
   contact_preference: y.string().required(FORM_ERROR_MESSAGES.required),
   first_name: y.string().required(FORM_ERROR_MESSAGES.required),

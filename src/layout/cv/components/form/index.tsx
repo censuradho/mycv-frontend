@@ -334,7 +334,7 @@ export function Form (props: CurriculumFormProps) {
                 <AutoCompleteForm
                   control={control}
                   name="address.country"
-                  label="Pais (opcional)"
+                  label="Pais"
                   keyName="value"
                   onChange={handleSearchCountry}
                   items={optionsCountries}
@@ -345,7 +345,7 @@ export function Form (props: CurriculumFormProps) {
                 <AutoCompleteForm
                   control={control}
                   name="address.city"
-                  label="Cidade (opcional)"
+                  label="Cidade"
                   keyName="value"
                   onChange={handleSearchCity}
                   items={optionsCities}
