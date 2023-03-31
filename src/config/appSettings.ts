@@ -5,34 +5,3 @@ export const appSettings = {
   ninjaApiKey: process.env.API_NINJAS_KEY,
   analytics: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 } 
-
-export const getMetaTag = (options: Metadata): Metadata => {
-  const { 
-    title, 
-    description,
-    openGraph,
-    twitter,
-    ...otherOptions
-  } = options
-
-  return {
-    openGraph: {
-      ...(title && ({ title })),
-      ...(description && ({ description })),
-      images: [
-        'https://mycv-online.vercel.app/og-image.png'
-      ],
-      ...openGraph,
-      type: 'website',
-      locale: 'pt-BR'
-    },
-    twitter: {
-      ...(title && ({ title })),
-      ...(description && ({ description })),
-      card: 'summary',
-      ...twitter,
-    },
-    ...otherOptions,
-  }
-  
-}
