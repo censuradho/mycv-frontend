@@ -27,8 +27,8 @@ export function Head (props: HeadProps) {
       <title>{title}</title>
       {description && <meta name="description" content={description}/>}
       <meta property="og:locale" content="pt-BR" />
-      {ogMeta.title && <meta property="og:title" content={ogMeta.title} />}
-      {ogMeta.description && <meta property="og:description" content={ogMeta.description} />}
+      {/* {ogMeta.title && <meta property="og:title" content={ogMeta.title} />} */}
+      {/* {ogMeta.description && <meta property="og:description" content={ogMeta.description} />} */}
       {ogMeta.image && <meta property="og:image" content={ogMeta.image} />}
       <meta name="twitter:card" content="summary" />
       <meta property="twitter:title" content={twitterMeta.title} />
