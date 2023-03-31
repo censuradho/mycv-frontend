@@ -1,5 +1,3 @@
-import NextHead from 'next/head'
-
 import { Head } from "@/components/common";
 import { HomeLayout } from "@/layout/home";
 

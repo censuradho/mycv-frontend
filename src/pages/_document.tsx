@@ -23,10 +23,10 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
-          {/* <style 
+          <style 
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
-          /> */}
+          />
         </Head>
         <body>
           <Main />

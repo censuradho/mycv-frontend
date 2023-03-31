@@ -26,17 +26,15 @@ export function Head (props: HeadProps) {
     <NextHead>
       <title>{title}</title>
       {description && <meta name="description" content={description}/>}
-      <meta name="language-lp" content="pt-BR" />
       <meta property="og:locale" content="pt-BR" />
-      <meta property="og:type" content="article" />
       {ogMeta.title && <meta property="og:title" content={ogMeta.title} />}
       {ogMeta.description && <meta property="og:description" content={ogMeta.description} />}
       {ogMeta.image && <meta property="og:image" content={ogMeta.image} />}
       <meta name="twitter:card" content="summary" />
-      {twitterMeta.title && <meta property="twitter:title" content={twitterMeta.title} />}
+      <meta property="twitter:title" content={twitterMeta.title} />
       {twitterMeta.image && <meta property="twitter:image" content={twitterMeta.image} />}
       {twitterMeta.description && <meta property="twitter:description" content={twitterMeta.description} />}
-      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" href="/favicon.ico" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     </NextHead>
