@@ -1,7 +1,18 @@
 import { CvPerfilLayout } from "@/layout/cv/perfil";
+import { GetServerSideProps } from "next";
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {
+      id: context.query.id
+    }
+  }
+}
 
-function CvPerfilPage () {
+export default function CvPerfilPage (props: any) {
+
+  console.log(props?.id)
+
   return (
     <>
       <CvPerfilLayout />
@@ -9,6 +20,3 @@ function CvPerfilPage () {
   )
 }
 
-
-
-export default CvPerfilPage
